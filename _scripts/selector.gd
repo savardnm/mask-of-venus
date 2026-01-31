@@ -16,8 +16,11 @@ func _process(delta: float):
 		if not selected_spotlight == null:
 			deselect(selected_spotlight)
 		if has_overlapping_areas():
-			select(get_overlapping_areas()[0])
+			var candidate = get_overlapping_areas()[0]
+			if candidate is Spotlight:
+				select(candidate)
 		else:
+			print("nope")
 			return # if there are no spotlights to select, do not continue
 
 	# continue if there are highlighted spotlights to choose from

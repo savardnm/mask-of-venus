@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://drioqy28s1o6k"]
 
-[ext_resource type="Script" path="res://character_body_2d.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://b6rohtlnvv3ac" path="res://character_body_2d.gd" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://b7k124ggs6xm" path="res://icon.svg" id="2_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://csvjh0r3n4yni" path="res://Sprites/Basic Shapes/Circle.png" id="3_1bvp3"]
-[ext_resource type="Shader" uid="uid://bgjo1xn5xpugk" path="res://material/cyan.gdshader" id="4_7mycd"]
+[ext_resource type="Shader" uid="uid://bibkhctwhfcee" path="res://material/Shader_Subtract.gdshader" id="3_7mycd"]
+[ext_resource type="Shader" uid="uid://dq7a7puer14nj" path="res://material/Shader_Add.gdshader" id="4_7mycd"]
 [ext_resource type="Texture2D" uid="uid://dekens6qjnt02" path="res://Sprites/Basic Shapes/Square.png" id="4_lquwl"]
+[ext_resource type="Script" uid="uid://clhoiqvjxcdof" path="res://_scripts/test.gd" id="5_272bh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0xm2m"]
 radius = 91.78235
@@ -12,14 +14,16 @@ radius = 91.78235
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
 size = Vector2(438, 123)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_272bh"]
-render_priority = 0
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5vw27"]
 shader = ExtResource("4_7mycd")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_272bh"]
+shader = ExtResource("3_7mycd")
 
 [node name="Root" type="Node2D" unique_id=848156233]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=225960537]
-position = Vector2(557, 193)
+position = Vector2(111, 250)
 script = ExtResource("1_ig7tw")
 metadata/_edit_group_ = true
 
@@ -31,7 +35,7 @@ scale = Vector2(1.5625, 1.515625)
 texture = ExtResource("2_0xm2m")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=256594757]
-position = Vector2(579, 479)
+position = Vector2(324, 583)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=269165546]
@@ -44,11 +48,21 @@ position = Vector2(-3.8146973e-05, -29.500015)
 scale = Vector2(4.53125, 1.2265627)
 texture = ExtResource("2_0xm2m")
 
-[node name="Circle" type="Sprite2D" parent="." unique_id=1431873370]
-position = Vector2(1140, 468)
+[node name="Circle3" type="Sprite2D" parent="." unique_id=1431873370]
+material = SubResource("ShaderMaterial_5vw27")
+instance_shader_parameters/objectColor = Vector4(1, 1, 0, 1)
+position = Vector2(760, 267)
+texture = ExtResource("3_1bvp3")
+script = ExtResource("5_272bh")
+
+[node name="Circle2" type="Sprite2D" parent="." unique_id=1489596734]
+material = SubResource("ShaderMaterial_5vw27")
+instance_shader_parameters/objectColor = Vector4(0, 1, 1, 1)
+position = Vector2(767, 275)
 texture = ExtResource("3_1bvp3")
 
 [node name="Square" type="Sprite2D" parent="." unique_id=1838755886]
 material = SubResource("ShaderMaterial_272bh")
-position = Vector2(933, 211)
+instance_shader_parameters/objectColor = Vector4(1, 0, 0, 1)
+position = Vector2(325, 146)
 texture = ExtResource("4_lquwl")

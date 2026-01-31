@@ -5,9 +5,13 @@ void vertex() {
 }
 
 void fragment(){
-  COLOR = vec4(0.4, 0.6, 0.9, 1.0);
+  COLOR = vec4(0,1,1,1);
 }
+void blend_add()
+{
 
+	
+}
 //void light() {
 //	// Called for every pixel for every light affecting the material.
 //	// Uncomment to replace the default light processing function with this one.

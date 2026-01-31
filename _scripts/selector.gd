@@ -19,6 +19,9 @@ func _process(delta: float):
 			var candidate = get_overlapping_areas()[0]
 			if candidate is Spotlight:
 				select(candidate)
+	else:
+		if not selected_spotlight == null and not Input.is_action_pressed("select"):
+			deselect(selected_spotlight)
 
 	if selected_spotlight == null:
 		return

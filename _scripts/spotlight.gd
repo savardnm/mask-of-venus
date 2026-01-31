@@ -1,12 +1,20 @@
 extends Area2D
 class_name Spotlight
 
+
+# @export var size = 100:
+# 	set(value):
+# 		size = value
+# 		scale = Vector2(size/100, size/100)
+
 @export var size = 100
 
 @export var color = Color(1,1,1,1):
 	set(value):
 		color = value
 		set_spotlight_color(value)
+
+@export var shader: ShaderMaterial
 
 @onready var target_position = global_position
 var drag = 0.85
@@ -18,10 +26,10 @@ var outline = false:
 		outline = value
 		queue_redraw()
 
-func set_spotlight_color(new_color):
+func set_spotlight_color(new_color: Color):
 	var sprite: Sprite2D = find_child("Color Circle")
 	print("color circle?: ", sprite, color)
-	sprite.material.set_shader_parameter("objectColor", new_color)
+	sprite.material.set_shader_parameter("instance_shader_parameters/objectColor", Vector4(new_color.r, new_color.g, new_color.b, new_color.a))
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

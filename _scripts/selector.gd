@@ -1,4 +1,5 @@
 extends Area2D
+class_name Selector
 
 var mouse_position = Vector2.ZERO
 var selected_spotlight
@@ -29,8 +30,10 @@ func _process(delta: float):
 	if Input.is_action_just_pressed("select"):
 		offset = selected_spotlight.global_position - global_position
 
+	selected_spotlight.claimed = false
 	if Input.is_action_pressed("select"):
 		selected_spotlight.target_position = global_position + offset
+		selected_spotlight.claimed = true
 
 
 

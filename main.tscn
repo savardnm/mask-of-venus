@@ -51,18 +51,21 @@ texture = ExtResource("2_0xm2m")
 [node name="Circle3" type="Sprite2D" parent="." unique_id=1431873370]
 material = SubResource("ShaderMaterial_5vw27")
 instance_shader_parameters/objectColor = Vector4(1, 1, 0, 1)
-position = Vector2(760, 267)
+position = Vector2(767, 295)
 texture = ExtResource("3_1bvp3")
 script = ExtResource("5_272bh")
 
 [node name="Circle2" type="Sprite2D" parent="." unique_id=1489596734]
 material = SubResource("ShaderMaterial_5vw27")
 instance_shader_parameters/objectColor = Vector4(0, 1, 1, 1)
-position = Vector2(767, 275)
+position = Vector2(498, 218)
 texture = ExtResource("3_1bvp3")
 
 [node name="Square" type="Sprite2D" parent="." unique_id=1838755886]
 material = SubResource("ShaderMaterial_272bh")
 instance_shader_parameters/objectColor = Vector4(1, 0, 0, 1)
-position = Vector2(325, 146)
+position = Vector2(976, 641)
 texture = ExtResource("4_lquwl")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1123501620]
+position = Vector2(778, 309)

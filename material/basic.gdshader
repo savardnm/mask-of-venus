@@ -1,5 +1,6 @@
 shader_type canvas_item;
-render_mode blend_sub;
+
+
 instance uniform vec4 objectColor; 
 
 void vertex() {

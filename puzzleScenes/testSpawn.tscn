@@ -10,15 +10,15 @@ goalObject = NodePath("Romeo")
 otherObject = NodePath("juliet")
 
 [node name="Romeo" type="Sprite2D" parent="." unique_id=2001052172]
-modulate = Color(0, 1, 1, 1)
+modulate = Color(1, 1, 0, 1)
+z_index = -1
 position = Vector2(320.28, 296.04)
 scale = Vector2(0.463125, 0.43)
 texture = ExtResource("2_i5lm3")
 script = ExtResource("5_ruhxn")
 
 [node name="juliet" type="Sprite2D" parent="." unique_id=1052321452]
-modulate = Color(1, 0, 1, 1)
-position = Vector2(554, 288)
+position = Vector2(562, 290)
 scale = Vector2(0.47093755, 0.45343754)
 texture = ExtResource("2_i5lm3")
 script = ExtResource("5_ruhxn")

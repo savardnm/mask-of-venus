@@ -7,6 +7,8 @@
 [ext_resource type="Shader" uid="uid://dq7a7puer14nj" path="res://material/Shader_Add.gdshader" id="4_7mycd"]
 [ext_resource type="Texture2D" uid="uid://dekens6qjnt02" path="res://Sprites/Basic Shapes/Square.png" id="4_lquwl"]
 [ext_resource type="Script" uid="uid://clhoiqvjxcdof" path="res://_scripts/test.gd" id="5_272bh"]
+[ext_resource type="PackedScene" uid="uid://d1j6gck5rlp7s" path="res://Objects/spotlight.tscn" id="8_kek77"]
+[ext_resource type="Script" uid="uid://ikl3nxuwggej" path="res://_scripts/selector.gd" id="9_4c57u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0xm2m"]
 radius = 91.78235
@@ -54,15 +56,31 @@ texture = ExtResource("2_0xm2m")
 [node name="Circle3" type="Sprite2D" parent="." unique_id=1431873370]
 material = SubResource("ShaderMaterial_5vw27")
 instance_shader_parameters/objectColor = Vector4(1, 1, 0, 1)
-position = Vector2(767, 295)
+position = Vector2(428, 187)
 texture = ExtResource("3_1bvp3")
 script = ExtResource("5_272bh")
 
 [node name="Square" type="Sprite2D" parent="." unique_id=1838755886]
 material = SubResource("ShaderMaterial_272bh")
 instance_shader_parameters/objectColor = Vector4(1, 0, 0, 1)
-position = Vector2(976, 641)
+position = Vector2(574, 327)
 texture = ExtResource("4_lquwl")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1123501620]
 position = Vector2(778, 309)
+
+[node name="Spotlight" parent="." unique_id=1141804037 instance=ExtResource("8_kek77")]
+position = Vector2(248, 147)
+color = Color(1, 0, 1, 1)
+
+[node name="Spotlight2" parent="." unique_id=899625294 instance=ExtResource("8_kek77")]
+position = Vector2(671, 151)
+color = Color(0, 1, 1, 1)
+
+[node name="Selector" type="Area2D" parent="." unique_id=224449348]
+position = Vector2(441, 80)
+script = ExtResource("9_4c57u")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Selector" unique_id=1079103478]
+shape = SubResource("CircleShape2D_dg77c")

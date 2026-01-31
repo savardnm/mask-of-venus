@@ -12,6 +12,7 @@ shader = ExtResource("2_cqapl")
 
 [node name="Spotlight" type="Area2D" unique_id=1141804037]
 script = ExtResource("1_xur3a")
+size = 200
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=730873793]
@@ -19,6 +20,6 @@ shape = SubResource("CircleShape2D_efxa6")
 
 [node name="Color Circle" type="Sprite2D" parent="." unique_id=81173429]
 material = SubResource("ShaderMaterial_5vw27")
-instance_shader_parameters/objectColor = Vector4(0, 1, 1, 1)
+instance_shader_parameters/objectColor = Vector4(1, 0, 1, 1)
 scale = Vector2(0.7734375, 0.7734375)
 texture = ExtResource("3_yemns")

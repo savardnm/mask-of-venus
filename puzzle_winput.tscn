@@ -46,12 +46,13 @@ position = Vector2(778, 309)
 
 [node name="Spotlight" parent="." unique_id=1141804037 instance=ExtResource("8_cmf70")]
 material = SubResource("ShaderMaterial_1dmfv")
-instance_shader_parameters/objectColor = Vector4(1, 0, 0, 1)
+instance_shader_parameters/objectColor = Vector4(1, 0, 1, 1)
 position = Vector2(170, 151)
+size = 100
 
 [node name="Spotlight2" parent="." unique_id=899625294 instance=ExtResource("8_cmf70")]
 position = Vector2(854, 109)
-color = Color(0, 1, 1, 1)
+size = 100
 
 [node name="Selector" type="Area2D" parent="." unique_id=224449348]
 position = Vector2(440, 80)

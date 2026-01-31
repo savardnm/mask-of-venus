@@ -33,7 +33,7 @@ func set_spotlight_color(new_color: Color):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_spotlight_color(color)
+	# set_spotlight_color(color)
 	pass # Replace with function body.
 
 func draw_outline():

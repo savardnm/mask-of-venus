@@ -73,7 +73,7 @@ texture = ExtResource("7_id4du")
 position = Vector2(778, 309)
 
 [node name="Spotlight" parent="." unique_id=1141804037 instance=ExtResource("8_hhap6")]
-position = Vector2(245, 210)
+position = Vector2(190, 156)
 color = Color(1, 0, 1, 1)
 shader = SubResource("ShaderMaterial_kek77")
 

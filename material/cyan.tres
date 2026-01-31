@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://do78sv4mr2xjm"]
+
+[ext_resource type="Shader" uid="uid://bgjo1xn5xpugk" path="res://material/cyan.gdshader" id="1_afn7y"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_afn7y")

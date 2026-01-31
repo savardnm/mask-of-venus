@@ -7,6 +7,8 @@
 [ext_resource type="Shader" uid="uid://dq7a7puer14nj" path="res://material/Shader_Add.gdshader" id="4_7mycd"]
 [ext_resource type="Texture2D" uid="uid://dekens6qjnt02" path="res://Sprites/Basic Shapes/Square.png" id="4_lquwl"]
 [ext_resource type="Script" uid="uid://clhoiqvjxcdof" path="res://_scripts/test.gd" id="5_272bh"]
+[ext_resource type="Script" uid="uid://hk27ngxj2a1f" path="res://_scripts/puzzle.gd" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://duaodkki0y8ok" path="res://testSpawn.tscn" id="9_kek77"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0xm2m"]
 radius = 91.78235
@@ -51,7 +53,7 @@ texture = ExtResource("2_0xm2m")
 [node name="Circle3" type="Sprite2D" parent="." unique_id=1431873370]
 material = SubResource("ShaderMaterial_5vw27")
 instance_shader_parameters/objectColor = Vector4(1, 1, 0, 1)
-position = Vector2(767, 295)
+position = Vector2(641, 234)
 texture = ExtResource("3_1bvp3")
 script = ExtResource("5_272bh")
 
@@ -64,8 +66,12 @@ texture = ExtResource("3_1bvp3")
 [node name="Square" type="Sprite2D" parent="." unique_id=1838755886]
 material = SubResource("ShaderMaterial_272bh")
 instance_shader_parameters/objectColor = Vector4(1, 0, 0, 1)
-position = Vector2(976, 641)
+position = Vector2(1014, 302)
 texture = ExtResource("4_lquwl")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1123501620]
 position = Vector2(778, 309)
+
+[node name="puzzle" type="Node2D" parent="." unique_id=1154874647]
+script = ExtResource("8_5vw27")
+goalObject = ExtResource("9_kek77")

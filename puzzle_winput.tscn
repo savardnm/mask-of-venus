@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://c2sui3g7o8nb8"]
+
+[ext_resource type="Shader" uid="uid://dq7a7puer14nj" path="res://material/Shader_Add.gdshader" id="3_4m6s5"]
+[ext_resource type="Texture2D" uid="uid://csvjh0r3n4yni" path="res://Sprites/Basic Shapes/Circle.png" id="4_5fri5"]
+[ext_resource type="Script" uid="uid://clhoiqvjxcdof" path="res://_scripts/test.gd" id="5_cvf5x"]
+[ext_resource type="Shader" uid="uid://bibkhctwhfcee" path="res://material/Shader_Subtract.gdshader" id="6_kpfah"]
+[ext_resource type="Texture2D" uid="uid://dekens6qjnt02" path="res://Sprites/Basic Shapes/Square.png" id="7_gxjkp"]
+[ext_resource type="PackedScene" uid="uid://d1j6gck5rlp7s" path="res://Objects/spotlight.tscn" id="8_cmf70"]
+[ext_resource type="Script" uid="uid://ikl3nxuwggej" path="res://_scripts/selector.gd" id="9_2dvh1"]
+[ext_resource type="Script" uid="uid://byl12g3sv1ol5" path="res://_scripts/PuzzleManager.gd" id="10_5fri5"]
+[ext_resource type="Script" uid="uid://b4fdt7y380woq" path="res://_scripts/PuzzleLoader.gd" id="11_cvf5x"]
+[ext_resource type="PackedScene" uid="uid://duaodkki0y8ok" path="res://puzzleScenes/testSpawn.tscn" id="12_kpfah"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5vw27"]
+shader = ExtResource("3_4m6s5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_272bh"]
+shader = ExtResource("6_kpfah")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1dmfv"]
+shader = ExtResource("3_4m6s5")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dg77c"]
+radius = 17.029387
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4m6s5"]
+size = Vector2(873.8872, 62.25186)
+
+[node name="Root" type="Node2D" unique_id=848156233]
+
+[node name="Circle3" type="Sprite2D" parent="." unique_id=1431873370]
+material = SubResource("ShaderMaterial_5vw27")
+instance_shader_parameters/objectColor = Vector4(1, 1, 0, 1)
+position = Vector2(428, 187)
+texture = ExtResource("4_5fri5")
+script = ExtResource("5_cvf5x")
+
+[node name="Square" type="Sprite2D" parent="." unique_id=1838755886]
+material = SubResource("ShaderMaterial_272bh")
+instance_shader_parameters/objectColor = Vector4(1, 0, 0, 1)
+position = Vector2(574, 327)
+texture = ExtResource("7_gxjkp")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1123501620]
+position = Vector2(778, 309)
+
+[node name="Spotlight" parent="." unique_id=1141804037 instance=ExtResource("8_cmf70")]
+material = SubResource("ShaderMaterial_1dmfv")
+instance_shader_parameters/objectColor = Vector4(1, 0, 1, 1)
+position = Vector2(170, 151)
+size = 100
+
+[node name="Spotlight2" parent="." unique_id=899625294 instance=ExtResource("8_cmf70")]
+position = Vector2(854, 109)
+size = 100
+
+[node name="Selector" type="Area2D" parent="." unique_id=224449348]
+position = Vector2(440, 80)
+script = ExtResource("9_2dvh1")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Selector" unique_id=1079103478]
+shape = SubResource("CircleShape2D_dg77c")
+
+[node name="puzzleManager" type="Node" parent="." unique_id=1441602274 node_paths=PackedStringArray("loader", "debugText")]
+script = ExtResource("10_5fri5")
+loaderName = "PuzzleLoader"
+loader = NodePath("../PuzzleLoader")
+debugText = NodePath("../debugoutputtext")
+
+[node name="PuzzleLoader" type="Node" parent="." unique_id=723780575]
+script = ExtResource("11_cvf5x")
+puzzleList = Array[PackedScene]([ExtResource("12_kpfah")])
+
+[node name="debugoutputtext" type="RichTextLabel" parent="." unique_id=1498843965]
+offset_right = 40.0
+offset_bottom = 40.0
+fit_content = true
+autowrap_mode = 0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=683850066]
+position = Vector2(295, 587)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=223068846]
+position = Vector2(286.865, 9.397522)
+scale = Vector2(1.33, 1.33)
+shape = SubResource("RectangleShape2D_4m6s5")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=865923527]
+modulate = Color(0.38431373, 0.1882353, 0, 1)
+position = Vector2(282.49994, 9.999981)
+scale = Vector2(4.550781, 0.36718735)
+texture = ExtResource("7_gxjkp")

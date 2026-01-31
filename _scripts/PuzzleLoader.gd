@@ -11,8 +11,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func load_next_puzzle():
-	
+# func load_next_puzzle():
+
 
 func load_puzzle(puzzle_number:int):
 	var _puzzle = puzzleList[puzzle_number]

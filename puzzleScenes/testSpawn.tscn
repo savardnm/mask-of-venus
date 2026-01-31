@@ -19,9 +19,8 @@ otherObject = NodePath("juliet")
 
 [node name="Romeo" type="Sprite2D" parent="." unique_id=2001052172]
 modulate = Color(1, 1, 0, 1)
-z_index = -1
 material = SubResource("ShaderMaterial_ruhxn")
-instance_shader_parameters/objectColor = Vector4(0, 1, 1, 1)
+instance_shader_parameters/objectColor = Vector4(0, 0, 1, 1)
 position = Vector2(446, 501.74084)
 scale = Vector2(3, 3)
 texture = ExtResource("3_7wa6u")
@@ -31,7 +30,7 @@ script = ExtResource("5_ruhxn")
 texture_filter = 1
 material = SubResource("ShaderMaterial_i5lm3")
 instance_shader_parameters/objectColor = Vector4(1, 0, 1, 1)
-position = Vector2(592.38367, 501.5)
+position = Vector2(592.38367, 500.5)
 scale = Vector2(3, 3)
 texture = ExtResource("5_7wa6u")
 script = ExtResource("5_ruhxn")

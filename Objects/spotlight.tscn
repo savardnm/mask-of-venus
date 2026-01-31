@@ -11,6 +11,7 @@ radius = 100.0
 shader = ExtResource("2_cqapl")
 
 [node name="Spotlight" type="Area2D" unique_id=1141804037]
+z_index = 10
 script = ExtResource("1_xur3a")
 size = 200
 metadata/_edit_group_ = true

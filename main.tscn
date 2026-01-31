@@ -70,11 +70,11 @@ texture = ExtResource("4_lquwl")
 position = Vector2(778, 309)
 
 [node name="Spotlight" parent="." unique_id=1141804037 instance=ExtResource("8_kek77")]
-position = Vector2(248, 147)
+position = Vector2(234, 276)
 color = Color(1, 0, 1, 1)
 
 [node name="Spotlight2" parent="." unique_id=899625294 instance=ExtResource("8_kek77")]
-position = Vector2(671, 151)
+position = Vector2(821, 194)
 color = Color(0, 1, 1, 1)
 
 [node name="Selector" type="Area2D" parent="." unique_id=224449348]

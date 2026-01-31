@@ -12,18 +12,16 @@ func _ready():
 func _process(delta: float):
 	position = mouse_position
 	
-	if not Input.is_action_pressed("select"):
-		if not selected_spotlight == null:
-			deselect(selected_spotlight)
-		if has_overlapping_areas():
+	if  has_overlapping_areas():
+		if not Input.is_action_pressed("select"):
+			if not selected_spotlight == null:
+				deselect(selected_spotlight)
 			var candidate = get_overlapping_areas()[0]
 			if candidate is Spotlight:
 				select(candidate)
-		else:
-			print("nope")
-			return # if there are no spotlights to select, do not continue
 
-	# continue if there are highlighted spotlights to choose from
+	if selected_spotlight == null:
+		return
 
 	if Input.is_action_just_pressed("select"):
 		offset = selected_spotlight.global_position - global_position

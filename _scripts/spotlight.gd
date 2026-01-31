@@ -5,8 +5,8 @@ class_name Spotlight
 
 @export var color = Color(1,1,1,1):
 	set(value):
-		set_spotlight_color(value)
 		color = value
+		set_spotlight_color(value)
 
 @onready var target_position = global_position
 var drag = 0.85
@@ -20,6 +20,7 @@ var outline = false:
 
 func set_spotlight_color(new_color):
 	var sprite: Sprite2D = find_child("Color Circle")
+	print("color circle?: ", sprite, color)
 	sprite.material.set_shader_parameter("objectColor", new_color)
 
 # Called when the node enters the scene tree for the first time.

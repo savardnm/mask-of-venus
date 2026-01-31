@@ -7,19 +7,14 @@
 [ext_resource type="Shader" uid="uid://dq7a7puer14nj" path="res://material/Shader_Add.gdshader" id="4_7mycd"]
 [ext_resource type="Texture2D" uid="uid://dekens6qjnt02" path="res://Sprites/Basic Shapes/Square.png" id="4_lquwl"]
 [ext_resource type="Script" uid="uid://clhoiqvjxcdof" path="res://_scripts/test.gd" id="5_272bh"]
-<<<<<<< HEAD
-[ext_resource type="Script" uid="uid://b4fdt7y380woq" path="res://_scripts/PuzzleLoader.gd" id="8_5vw27"]
-[ext_resource type="PackedScene" uid="uid://duaodkki0y8ok" path="res://puzzleScenes/testSpawn.tscn" id="9_4c57u"]
-=======
 [ext_resource type="PackedScene" uid="uid://d1j6gck5rlp7s" path="res://Objects/spotlight.tscn" id="8_kek77"]
 [ext_resource type="Script" uid="uid://ikl3nxuwggej" path="res://_scripts/selector.gd" id="9_4c57u"]
->>>>>>> 6caaba057a8a3f9d4583670066e56971277c36f6
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0xm2m"]
 radius = 91.78235
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
-size = Vector2(873.8872, 62.25186)
+size = Vector2(438, 123)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5vw27"]
 shader = ExtResource("4_7mycd")
@@ -45,18 +40,18 @@ scale = Vector2(1.5625, 1.515625)
 texture = ExtResource("2_0xm2m")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=256594757]
-position = Vector2(295, 587)
+position = Vector2(324, 583)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=269165546]
-position = Vector2(286.865, 9.397522)
+position = Vector2(-3, -31)
 scale = Vector2(1.33, 1.33)
 shape = SubResource("RectangleShape2D_h2yge")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=814869117]
-modulate = Color(0.38431373, 0.1882353, 0, 1)
-position = Vector2(282.49994, 9.999981)
-scale = Vector2(4.550781, 0.36718735)
-texture = ExtResource("4_lquwl")
+position = Vector2(-3.8146973e-05, -29.500015)
+scale = Vector2(4.53125, 1.2265627)
+texture = ExtResource("2_0xm2m")
 
 [node name="Circle3" type="Sprite2D" parent="." unique_id=1431873370]
 material = SubResource("ShaderMaterial_5vw27")
@@ -74,11 +69,6 @@ texture = ExtResource("4_lquwl")
 [node name="Node2D" type="Node2D" parent="." unique_id=1123501620]
 position = Vector2(778, 309)
 
-<<<<<<< HEAD
-[node name="Puzzle_loader" type="Node" parent="." unique_id=442573067]
-script = ExtResource("8_5vw27")
-puzzleList = Array[PackedScene]([ExtResource("9_4c57u")])
-=======
 [node name="Spotlight" parent="." unique_id=1141804037 instance=ExtResource("8_kek77")]
 position = Vector2(248, 147)
 color = Color(1, 0, 1, 1)
@@ -94,4 +84,3 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Selector" unique_id=1079103478]
 shape = SubResource("CircleShape2D_dg77c")
->>>>>>> 6caaba057a8a3f9d4583670066e56971277c36f6

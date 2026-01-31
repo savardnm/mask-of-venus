@@ -22,11 +22,11 @@ shader = ExtResource("4_7mycd")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_272bh"]
 shader = ExtResource("3_7mycd")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kek77"]
-shader = ExtResource("4_7mycd")
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_dg77c"]
 radius = 17.029387
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kek77"]
+shader = ExtResource("4_7mycd")
 
 [node name="Root" type="Node2D" unique_id=848156233]
 
@@ -72,15 +72,6 @@ texture = ExtResource("4_lquwl")
 [node name="Node2D" type="Node2D" parent="." unique_id=1123501620]
 position = Vector2(778, 309)
 
-[node name="Spotlight" parent="." unique_id=1141804037 instance=ExtResource("8_kek77")]
-position = Vector2(245, 210)
-color = Color(1, 0, 1, 1)
-shader = SubResource("ShaderMaterial_kek77")
-
-[node name="Spotlight2" parent="." unique_id=899625294 instance=ExtResource("8_kek77")]
-position = Vector2(732, 206)
-color = Color(0, 1, 1, 1)
-
 [node name="Selector" type="Area2D" parent="." unique_id=224449348]
 position = Vector2(441, 80)
 script = ExtResource("9_4c57u")
@@ -88,3 +79,33 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Selector" unique_id=1079103478]
 shape = SubResource("CircleShape2D_dg77c")
+
+[node name="Spotlight" parent="." unique_id=1141804037 instance=ExtResource("8_kek77")]
+position = Vector2(786, 325)
+size = 100
+color = Color(1, 0, 1, 1)
+shader = SubResource("ShaderMaterial_kek77")
+
+[node name="Color Circle" parent="Spotlight" index="1" unique_id=81173429]
+instance_shader_parameters/objectColor = Vector4(0, 1, 0, 1)
+
+[node name="Spotlight2" parent="." unique_id=899625294 instance=ExtResource("8_kek77")]
+position = Vector2(937, 319)
+size = 100
+color = Color(0, 1, 1, 1)
+
+[node name="Color Circle" parent="Spotlight2" index="1" unique_id=81173429]
+instance_shader_parameters/objectColor = Vector4(1, 0, 0, 1)
+
+[node name="Spotlight3" parent="." unique_id=258960671 instance=ExtResource("8_kek77")]
+position = Vector2(873.00006, 201.99998)
+scale = Vector2(1.61, 1.61)
+size = 100
+color = Color(0, 1, 1, 1)
+
+[node name="Color Circle" parent="Spotlight3" index="1" unique_id=81173429]
+instance_shader_parameters/objectColor = Vector4(0, 0, 1, 1)
+
+[editable path="Spotlight"]
+[editable path="Spotlight2"]
+[editable path="Spotlight3"]

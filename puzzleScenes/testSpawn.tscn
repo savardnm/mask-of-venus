@@ -1,68 +1,27 @@
 [gd_scene format=3 uid="uid://duaodkki0y8ok"]
 
-[ext_resource type="Shader" uid="uid://dq7a7puer14nj" path="res://material/Shader_Add.gdshader" id="1_7wa6u"]
 [ext_resource type="Script" uid="uid://hk27ngxj2a1f" path="res://_scripts/Puzzle.gd" id="1_i5lm3"]
 [ext_resource type="Texture2D" uid="uid://csvjh0r3n4yni" path="res://Sprites/Basic Shapes/Circle.png" id="2_i5lm3"]
-[ext_resource type="Script" uid="uid://clhoiqvjxcdof" path="res://_scripts/test.gd" id="3_ruhxn"]
-[ext_resource type="Shader" uid="uid://bibkhctwhfcee" path="res://material/Shader_Subtract.gdshader" id="4_yl5nb"]
-[ext_resource type="Texture2D" uid="uid://dekens6qjnt02" path="res://Sprites/Basic Shapes/Square.png" id="5_esof6"]
 [ext_resource type="Script" uid="uid://do16jfth1mfhm" path="res://_scripts/prop.gd" id="5_ruhxn"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5vw27"]
-shader = ExtResource("1_7wa6u")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_272bh"]
-shader = ExtResource("4_yl5nb")
 
 [node name="Root" type="Node2D" unique_id=848156233 node_paths=PackedStringArray("goalObject", "otherObject")]
 script = ExtResource("1_i5lm3")
 goalObject = NodePath("Romeo")
 otherObject = NodePath("juliet")
 
-[node name="Circle3" type="Sprite2D" parent="." unique_id=1431873370]
-material = SubResource("ShaderMaterial_5vw27")
-instance_shader_parameters/objectColor = Vector4(1, 1, 0, 1)
-position = Vector2(346, 291)
-scale = Vector2(0.52, 0.36)
-texture = ExtResource("2_i5lm3")
-script = ExtResource("3_ruhxn")
-
-[node name="Circle4" type="Sprite2D" parent="." unique_id=1212116730]
-material = SubResource("ShaderMaterial_5vw27")
-instance_shader_parameters/objectColor = Vector4(1, 0, 0, 1)
-position = Vector2(461.00006, 319)
-scale = Vector2(0.52, 0.36)
-texture = ExtResource("2_i5lm3")
-script = ExtResource("3_ruhxn")
-
-[node name="Circle5" type="Sprite2D" parent="." unique_id=138143413]
-material = SubResource("ShaderMaterial_5vw27")
-instance_shader_parameters/objectColor = Vector4(0, 1, 0, 1)
-position = Vector2(377, 396)
-scale = Vector2(0.52, 0.36)
-texture = ExtResource("2_i5lm3")
-script = ExtResource("3_ruhxn")
-
 [node name="Romeo" type="Sprite2D" parent="." unique_id=2001052172]
 modulate = Color(0, 1, 1, 1)
-position = Vector2(246, 162)
-scale = Vector2(0.52, 0.36)
+position = Vector2(320.28, 296.04)
+scale = Vector2(0.463125, 0.43)
 texture = ExtResource("2_i5lm3")
 script = ExtResource("5_ruhxn")
 
 [node name="juliet" type="Sprite2D" parent="." unique_id=1052321452]
-modulate = Color(0, 1, 1, 1)
-position = Vector2(514, 185)
-scale = Vector2(0.52, 0.36)
+modulate = Color(1, 0, 1, 1)
+position = Vector2(554, 288)
+scale = Vector2(0.47093755, 0.45343754)
 texture = ExtResource("2_i5lm3")
 script = ExtResource("5_ruhxn")
-
-[node name="Square" type="Sprite2D" parent="." unique_id=1838755886]
-material = SubResource("ShaderMaterial_272bh")
-instance_shader_parameters/objectColor = Vector4(1, 0, 0, 1)
-position = Vector2(382, 340)
-scale = Vector2(0.52, 0.36)
-texture = ExtResource("5_esof6")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1123501620]
 position = Vector2(468, 263)

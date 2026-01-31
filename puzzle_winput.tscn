@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://c2sui3g7o8nb8"]
 
 [ext_resource type="Shader" uid="uid://dq7a7puer14nj" path="res://material/Shader_Add.gdshader" id="3_4m6s5"]
+[ext_resource type="PackedScene" uid="uid://dat0x6vuf5n5d" path="res://puzzleScenes/bear_puzzle.tscn" id="4_51arp"]
+[ext_resource type="PackedScene" uid="uid://d1gqdibb22j0f" path="res://puzzleScenes/puzzle2_randj.tscn" id="5_454rm"]
 [ext_resource type="PackedScene" uid="uid://db0ebxc0hdqyr" path="res://Objects/selector.tscn" id="6_1dmfv"]
 [ext_resource type="Texture2D" uid="uid://dekens6qjnt02" path="res://Sprites/Basic Shapes/Square.png" id="7_gxjkp"]
 [ext_resource type="PackedScene" uid="uid://d1j6gck5rlp7s" path="res://Objects/spotlight.tscn" id="8_cmf70"]
@@ -30,7 +32,7 @@ debugText = NodePath("../debugoutputtext")
 
 [node name="PuzzleLoader" type="Node" parent="." unique_id=723780575]
 script = ExtResource("11_cvf5x")
-puzzleList = Array[PackedScene]([ExtResource("12_kpfah")])
+puzzleList = Array[PackedScene]([ExtResource("4_51arp"), ExtResource("5_454rm"), ExtResource("12_kpfah")])
 
 [node name="debugoutputtext" type="RichTextLabel" parent="." unique_id=1498843965]
 offset_right = 40.0

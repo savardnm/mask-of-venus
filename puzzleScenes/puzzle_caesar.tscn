@@ -1,0 +1,242 @@
+[gd_scene format=3 uid="uid://bq2oueahfe5ht"]
+
+[ext_resource type="Script" uid="uid://dhskevdurg575" path="res://_scripts/puzzle_bear.gd" id="1_c164n"]
+[ext_resource type="Shader" uid="uid://bea5lkum3nd0o" path="res://material/basic.gdshader" id="2_dhdah"]
+[ext_resource type="Texture2D" uid="uid://dekens6qjnt02" path="res://Sprites/Basic Shapes/Square.png" id="3_ovm2y"]
+[ext_resource type="Script" uid="uid://do16jfth1mfhm" path="res://_scripts/prop.gd" id="4_t3db8"]
+[ext_resource type="Texture2D" uid="uid://tv183057h58t" path="res://Sprites/Characters/romeo.png" id="5_3kpna"]
+[ext_resource type="Shader" uid="uid://bibkhctwhfcee" path="res://material/Shader_Subtract.gdshader" id="7_4sl0n"]
+[ext_resource type="Texture2D" uid="uid://cq6jcwokwlm4v" path="res://Sprites/Characters/human_dress.png" id="8_aw5fv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ruhxn"]
+shader = ExtResource("2_dhdah")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x8pby"]
+shader = ExtResource("7_4sl0n")
+
+[node name="Root" type="Node2D" unique_id=848156233 node_paths=PackedStringArray("bear", "rescueObject", "background", "hunter")]
+script = ExtResource("1_c164n")
+bear = NodePath("")
+rescueObject = NodePath("Romeo")
+background = NodePath("")
+hunter = NodePath("brutus")
+
+[node name="wall" type="Sprite2D" parent="." unique_id=1831960351]
+modulate = Color(0.9, 0.9, 0.9, 1)
+z_index = -1
+texture_filter = 1
+position = Vector2(567.5, 326.75)
+scale = Vector2(4.4492188, 2.4863281)
+texture = ExtResource("3_ovm2y")
+script = ExtResource("4_t3db8")
+
+[node name="Romeo" type="Sprite2D" parent="." unique_id=2001052172]
+modulate = Color(1, 1, 0, 1)
+material = SubResource("ShaderMaterial_ruhxn")
+instance_shader_parameters/objectColor = Vector4(0.7, 0, 0.7, 1)
+position = Vector2(108, 502)
+scale = Vector2(3, 3)
+texture = ExtResource("5_3kpna")
+script = ExtResource("4_t3db8")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1123501620]
+position = Vector2(468, 263)
+scale = Vector2(0.52, 0.36)
+
+[node name="brutus" type="Sprite2D" parent="." unique_id=1302562092]
+modulate = Color(1, 1, 0, 1)
+light_mask = 0
+visibility_layer = 2
+material = SubResource("ShaderMaterial_x8pby")
+instance_shader_parameters/objectColor = Vector4(1, 0, 1, 1)
+position = Vector2(528, 495.5)
+scale = Vector2(3, 3)
+texture = ExtResource("8_aw5fv")
+script = ExtResource("4_t3db8")
+
+[node name="roman0" type="Sprite2D" parent="." unique_id=1668908749]
+modulate = Color(1, 1, 0, 1)
+light_mask = 0
+visibility_layer = 2
+material = SubResource("ShaderMaterial_x8pby")
+instance_shader_parameters/objectColor = Vector4(0, 1, 1, 1)
+position = Vector2(489, 493.5)
+scale = Vector2(3, 3)
+texture = ExtResource("8_aw5fv")
+script = ExtResource("4_t3db8")
+
+[node name="roman3" type="Sprite2D" parent="." unique_id=1965426439]
+modulate = Color(1, 1, 0, 1)
+light_mask = 0
+visibility_layer = 2
+material = SubResource("ShaderMaterial_x8pby")
+instance_shader_parameters/objectColor = Vector4(0, 0.5, 0.5, 1)
+position = Vector2(544, 519)
+scale = Vector2(3, 3)
+texture = ExtResource("8_aw5fv")
+script = ExtResource("4_t3db8")
+
+[node name="roman1" type="Sprite2D" parent="." unique_id=294726345]
+modulate = Color(1, 1, 0, 1)
+light_mask = 0
+visibility_layer = 2
+material = SubResource("ShaderMaterial_x8pby")
+instance_shader_parameters/objectColor = Vector4(0, 0, 1, 1)
+position = Vector2(565, 492.5)
+scale = Vector2(3, 3)
+texture = ExtResource("8_aw5fv")
+script = ExtResource("4_t3db8")
+
+[node name="roman2" type="Sprite2D" parent="." unique_id=1497214041]
+modulate = Color(1, 1, 0, 1)
+light_mask = 0
+visibility_layer = 2
+material = SubResource("ShaderMaterial_x8pby")
+instance_shader_parameters/objectColor = Vector4(0, 0, 0.5, 1)
+position = Vector2(500, 533)
+scale = Vector2(3, 3)
+texture = ExtResource("8_aw5fv")
+script = ExtResource("4_t3db8")
+
+[node name="roman4" type="Sprite2D" parent="." unique_id=1140526699]
+modulate = Color(1, 1, 0, 1)
+light_mask = 0
+visibility_layer = 2
+material = SubResource("ShaderMaterial_x8pby")
+instance_shader_parameters/objectColor = Vector4(0, 0.75, 0.5, 1)
+position = Vector2(505, 439.00003)
+scale = Vector2(3, 3)
+texture = ExtResource("8_aw5fv")
+script = ExtResource("4_t3db8")
+
+[node name="roman5" type="Sprite2D" parent="." unique_id=705059632]
+modulate = Color(1, 1, 0, 1)
+light_mask = 0
+visibility_layer = 2
+material = SubResource("ShaderMaterial_x8pby")
+instance_shader_parameters/objectColor = Vector4(0, 0.25, 0.75, 1)
+position = Vector2(545, 429.00003)
+scale = Vector2(3, 3)
+texture = ExtResource("8_aw5fv")
+script = ExtResource("4_t3db8")
+
+[node name="roman6" type="Sprite2D" parent="." unique_id=113201904]
+modulate = Color(1, 1, 0, 1)
+light_mask = 0
+visibility_layer = 2
+material = SubResource("ShaderMaterial_x8pby")
+instance_shader_parameters/objectColor = Vector4(0, 0.5, 0.5, 1)
+position = Vector2(406, 516.5)
+scale = Vector2(3, 3)
+texture = ExtResource("8_aw5fv")
+script = ExtResource("4_t3db8")
+
+[node name="roman7" type="Sprite2D" parent="." unique_id=939713597]
+modulate = Color(1, 1, 0, 1)
+light_mask = 0
+visibility_layer = 2
+material = SubResource("ShaderMaterial_x8pby")
+instance_shader_parameters/objectColor = Vector4(0, 0, 1, 1)
+position = Vector2(427, 489.99997)
+scale = Vector2(3, 3)
+texture = ExtResource("8_aw5fv")
+script = ExtResource("4_t3db8")
+
+[node name="roman8" type="Sprite2D" parent="." unique_id=473958509]
+modulate = Color(1, 1, 0, 1)
+light_mask = 0
+visibility_layer = 2
+material = SubResource("ShaderMaterial_x8pby")
+instance_shader_parameters/objectColor = Vector4(0, 0, 0.5, 1)
+position = Vector2(362, 530.5)
+scale = Vector2(3, 3)
+texture = ExtResource("8_aw5fv")
+script = ExtResource("4_t3db8")
+
+[node name="roman9" type="Sprite2D" parent="." unique_id=786363807]
+modulate = Color(1, 1, 0, 1)
+light_mask = 0
+visibility_layer = 2
+material = SubResource("ShaderMaterial_x8pby")
+instance_shader_parameters/objectColor = Vector4(0, 0.75, 0.5, 1)
+position = Vector2(367, 436.5)
+scale = Vector2(3, 3)
+texture = ExtResource("8_aw5fv")
+script = ExtResource("4_t3db8")
+
+[node name="roman10" type="Sprite2D" parent="." unique_id=525055887]
+modulate = Color(1, 1, 0, 1)
+light_mask = 0
+visibility_layer = 2
+material = SubResource("ShaderMaterial_x8pby")
+instance_shader_parameters/objectColor = Vector4(0, 0.25, 0.75, 1)
+position = Vector2(407, 426.5)
+scale = Vector2(3, 3)
+texture = ExtResource("8_aw5fv")
+script = ExtResource("4_t3db8")
+
+[node name="roman11" type="Sprite2D" parent="." unique_id=131259974]
+modulate = Color(1, 1, 0, 1)
+light_mask = 0
+visibility_layer = 2
+material = SubResource("ShaderMaterial_x8pby")
+instance_shader_parameters/objectColor = Vector4(0, 0.5, 0.5, 1)
+position = Vector2(680, 521.5)
+scale = Vector2(3, 3)
+texture = ExtResource("8_aw5fv")
+script = ExtResource("4_t3db8")
+
+[node name="roman12" type="Sprite2D" parent="." unique_id=258073940]
+modulate = Color(1, 1, 0, 1)
+light_mask = 0
+visibility_layer = 2
+material = SubResource("ShaderMaterial_x8pby")
+instance_shader_parameters/objectColor = Vector4(0, 0, 1, 1)
+position = Vector2(701, 494.99997)
+scale = Vector2(3, 3)
+texture = ExtResource("8_aw5fv")
+script = ExtResource("4_t3db8")
+
+[node name="roman13" type="Sprite2D" parent="." unique_id=83106977]
+modulate = Color(1, 1, 0, 1)
+light_mask = 0
+visibility_layer = 2
+material = SubResource("ShaderMaterial_x8pby")
+instance_shader_parameters/objectColor = Vector4(0, 0, 0.5, 1)
+position = Vector2(636, 535.5)
+scale = Vector2(3, 3)
+texture = ExtResource("8_aw5fv")
+script = ExtResource("4_t3db8")
+
+[node name="roman14" type="Sprite2D" parent="." unique_id=527788539]
+modulate = Color(1, 1, 0, 1)
+light_mask = 0
+visibility_layer = 2
+material = SubResource("ShaderMaterial_x8pby")
+instance_shader_parameters/objectColor = Vector4(0, 0.75, 0.5, 1)
+position = Vector2(641, 441.5)
+scale = Vector2(3, 3)
+texture = ExtResource("8_aw5fv")
+script = ExtResource("4_t3db8")
+
+[node name="roman15" type="Sprite2D" parent="." unique_id=580033409]
+modulate = Color(1, 1, 0, 1)
+light_mask = 0
+visibility_layer = 2
+material = SubResource("ShaderMaterial_x8pby")
+instance_shader_parameters/objectColor = Vector4(0, 0.25, 0.75, 1)
+position = Vector2(681, 431.5)
+scale = Vector2(3, 3)
+texture = ExtResource("8_aw5fv")
+script = ExtResource("4_t3db8")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=391639637]
+canvas_cull_mask = 4294967065
+oversampling = false
+
+[node name="Camera2D" type="Camera2D" parent="SubViewport" unique_id=1705325053]
+show_behind_parent = true
+top_level = true
+light_mask = 0
+visibility_layer = 0
+position = Vector2(537, 271)

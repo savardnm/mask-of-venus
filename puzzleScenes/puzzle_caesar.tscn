@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cla56xkjblabd"]
 
-[ext_resource type="Script" uid="uid://g6mdv2gkcxy" path="res://_scripts/puzzle_caesar.gd" id="1_dhdah"]
+[ext_resource type="Script" path="res://_scripts/puzzle_caesar.gd" id="1_dhdah"]
 [ext_resource type="Shader" uid="uid://bea5lkum3nd0o" path="res://material/basic.gdshader" id="2_dhdah"]
 [ext_resource type="Texture2D" uid="uid://dekens6qjnt02" path="res://Sprites/Basic Shapes/Square.png" id="3_ovm2y"]
 [ext_resource type="Script" uid="uid://do16jfth1mfhm" path="res://_scripts/prop.gd" id="4_t3db8"]
@@ -109,7 +109,7 @@ script = ExtResource("4_t3db8")
 
 [node name="Subtractive Actor3" parent="." unique_id=103115309 instance=ExtResource("10_ovm2y")]
 instance_shader_parameters/objectColor = Vector4(0, 0.5, 0, 1)
-position = Vector2(539, 355.00003)
+position = Vector2(539, 356.00003)
 scale = Vector2(4.125001, 4.125001)
 texture = ExtResource("8_aw5fv")
 

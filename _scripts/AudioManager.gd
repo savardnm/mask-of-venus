@@ -37,6 +37,7 @@ var sfxSequence = [
 func _ready():
 	load_sounds_from_dir("res://Audio/Music/")
 	load_sounds_from_dir("res://Audio/SFX/")
+	sfxPlayer.connect("finished", Callable(self,"_continue_sfx_sequence").bind(sfxPlayer))
 	# play_voice_sequence(["f",'f','f'])
 	# play_music("Theme_Base_1",false)
 	# play_sfx("Applause");
@@ -67,7 +68,7 @@ func play_voice_sequence(order):
 
 	sfxPlayer.volume_db = 1
 	sfxPlayer.bus = &"SFX"
-	sfxPlayer.connect("finished", Callable(self,"_continue_sfx_sequence").bind(sfxPlayer))
+	
 	_continue_sfx_sequence(sfxPlayer)
 	sfxPlayer.play()
 
@@ -134,3 +135,31 @@ func load_sounds_from_dir(path: String):
 			
 			file_name = dir.get_next()
 		dir.list_dir_end()
+
+var musicProgression : int
+# 2 4 7 9
+func progress_music_score():
+	musicProgression = musicProgression + 1
+	var trackName = "Theme_" # Blue_ #.wav
+	var trackNumber = clamp(musicProgression % 5, 1,5)
+
+	if musicProgression < 5:
+		trackName = trackName + "Blue_"
+	elif musicProgression < 9:
+		trackName = trackName + "Green_" 
+	else:
+		trackName = trackName + "Red_" 
+
+	if trackNumber == 1:
+		trackName = trackName + "2"
+	elif trackNumber == 2:
+		trackName = trackName + "4"
+	elif trackNumber == 3:
+		trackName = trackName + "7"
+	else:
+		trackName = trackName + "9"
+
+	print(trackName)
+	play_music(trackName,true,0.1)
+	if musicProgression > 12:
+		musicProgression = 0

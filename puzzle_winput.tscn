@@ -25,12 +25,15 @@ shader = ExtResource("3_4m6s5")
 [node name="PuzzleWinput Root" type="Node2D" unique_id=848156233]
 
 [node name="AudioManager" type="AudioStreamPlayer" parent="." unique_id=1397479599 node_paths=PackedStringArray("musicPlayer", "sfxPlayer")]
+volume_db = 0.2
 autoplay = true
+playback_type = 1
 script = ExtResource("15_gxjkp")
 musicPlayer = NodePath(".")
 sfxPlayer = NodePath("sfxAudioStream")
 
 [node name="sfxAudioStream" type="AudioStreamPlayer" parent="AudioManager" unique_id=1177087320]
+playback_type = 1
 
 [node name="SFX Player" type="Node" parent="AudioManager" unique_id=885496056]
 script = ExtResource("2_gxjkp")
@@ -118,12 +121,13 @@ script = ExtResource("11_cvf5x")
 puzzleList = Array[PackedScene]([ExtResource("12_kpfah"), ExtResource("4_51arp"), ExtResource("8_kpfah"), ExtResource("8_cvf5x")])
 dialogue = NodePath("../Dialogue")
 
-[node name="puzzleManager" type="Node" parent="." unique_id=1441602274 node_paths=PackedStringArray("loader", "dialogue", "debugText")]
+[node name="puzzleManager" type="Node" parent="." unique_id=1441602274 node_paths=PackedStringArray("loader", "dialogue", "debugText", "audioManager")]
 script = ExtResource("10_5fri5")
 loaderName = "PuzzleLoader"
 loader = NodePath("../PuzzleLoader")
 dialogue = NodePath("../Dialogue")
 debugText = NodePath("../debugoutputtext")
+audioManager = NodePath("../AudioManager")
 
 [node name="Stage" type="Sprite2D" parent="." unique_id=1160562798]
 texture_filter = 1
@@ -141,8 +145,8 @@ texture = ExtResource("12_5fri5")
 [connection signal="curtains_closing" from="Curtain" to="AudioManager/SFX Player" method="play_applause"]
 [connection signal="curtains_opened" from="Curtain" to="Dialogue" method="give_prompt"]
 [connection signal="curtains_opened" from="Curtain" to="puzzleManager" method="resume_active_puzzle"]
-[connection signal="curtains_opening" from="Curtain" to="AudioManager/SFX Player" method="play_applause"]
 [connection signal="curtains_opening" from="Curtain" to="AudioManager/SFX Player" method="play_drumroll"]
+[connection signal="curtains_opening" from="Curtain" to="AudioManager/SFX Player" method="play_applause"]
 [connection signal="curtains_opening" from="Curtain" to="Curtain2" method="open_curtains"]
 [connection signal="puzzle_spawned" from="PuzzleLoader" to="Curtain" method="open_curtains"]
 [connection signal="puzzle_spawned" from="PuzzleLoader" to="Curtain2" method="open_curtains"]

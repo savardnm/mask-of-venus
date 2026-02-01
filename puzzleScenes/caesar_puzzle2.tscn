@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://bqf4yg0f5d8xg"]
+
+[ext_resource type="Script" path="res://_scripts/puzzle_caesar.gd" id="1_urwc0"]
+[ext_resource type="Script" uid="uid://bwcyh1ntw82jw" path="res://_scripts/puzzle_dialogue.gd" id="2_cbfx6"]
+[ext_resource type="Texture2D" uid="uid://dekens6qjnt02" path="res://Sprites/Basic Shapes/Square.png" id="3_vqnul"]
+[ext_resource type="Script" uid="uid://do16jfth1mfhm" path="res://_scripts/prop.gd" id="4_ytjgp"]
+[ext_resource type="Shader" uid="uid://bibkhctwhfcee" path="res://material/Shader_Subtract.gdshader" id="5_7uf51"]
+[ext_resource type="Texture2D" uid="uid://cq6jcwokwlm4v" path="res://Sprites/Characters/human_dress.png" id="6_yfj8m"]
+[ext_resource type="PackedScene" uid="uid://cjnydtfe8556u" path="res://Objects/Actor.tscn" id="7_ljhg7"]
+[ext_resource type="Shader" uid="uid://bea5lkum3nd0o" path="res://material/basic.gdshader" id="8_mar2j"]
+[ext_resource type="PackedScene" uid="uid://bbwjgrsgps0um" path="res://Objects/SubtractiveActor.tscn" id="9_24sxu"]
+[ext_resource type="Texture2D" uid="uid://cs1v5x8va363q" path="res://Sprites/Characters/hat_circlet.png" id="10_idb1e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x8pby"]
+shader = ExtResource("5_7uf51")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_khh3f"]
+shader = ExtResource("8_mar2j")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3kpna"]
+shader = ExtResource("8_mar2j")
+
+[node name="CaesarPuzzle" type="Node2D" unique_id=848156233 node_paths=PackedStringArray("brutus")]
+texture_filter = 1
+script = ExtResource("1_urwc0")
+brutus = NodePath("Brutus")
+
+[node name="PuzzleDialogue" type="Node2D" parent="." unique_id=1016861616]
+script = ExtResource("2_cbfx6")
+puzzle_prompt_text = "[color=magenta]The ides of March are come...[/color]
+[i]Ay, Caesar; but not gone. Where is that villanious Brutus?[/i]"
+puzzle_complete_text = "[color=magenta] Et tu, Brute! Then rise, Caesar![/color]
+[i]So Brutus doth bootless kneel after all...[/i]"
+easter_egg_text = "[color=green][i]Where did the monsterous tyrant flee?[/i][/color]"
+puzzle_prompt_speakers = Array[String](["m", "n"])
+puzzle_complete_speakers = Array[String](["m", "n"])
+
+[node name="wall" type="Sprite2D" parent="." unique_id=1831960351]
+modulate = Color(0.757312, 0.8329293, 0.7729175, 1)
+z_index = -1
+texture_filter = 1
+position = Vector2(571, 366)
+scale = Vector2(4.4492188, 1.3906251)
+texture = ExtResource("3_vqnul")
+script = ExtResource("4_ytjgp")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1123501620]
+position = Vector2(547.5, 288)
+scale = Vector2(0.52, 0.36)
+
+[node name="roman8" type="Sprite2D" parent="." unique_id=473958509]
+light_mask = 0
+visibility_layer = 2
+material = SubResource("ShaderMaterial_x8pby")
+instance_shader_parameters/objectColor = Vector4(0, 0, 1, 1)
+position = Vector2(621, 357)
+scale = Vector2(3.500001, 3.500001)
+texture = ExtResource("6_yfj8m")
+script = ExtResource("4_ytjgp")
+
+[node name="roman9" type="Sprite2D" parent="." unique_id=786363807]
+light_mask = 0
+visibility_layer = 2
+material = SubResource("ShaderMaterial_x8pby")
+instance_shader_parameters/objectColor = Vector4(0, 1, 0.3, 1)
+position = Vector2(636.5, 430.4688)
+scale = Vector2(4.062498, 4.062498)
+texture = ExtResource("6_yfj8m")
+script = ExtResource("4_ytjgp")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=391639637]
+canvas_cull_mask = 4294967065
+oversampling = false
+
+[node name="Camera2D" type="Camera2D" parent="SubViewport" unique_id=1705325053]
+show_behind_parent = true
+top_level = true
+light_mask = 0
+visibility_layer = 0
+position = Vector2(537, 271)
+
+[node name="Caesar" parent="." unique_id=83004834 instance=ExtResource("7_ljhg7")]
+material = SubResource("ShaderMaterial_khh3f")
+instance_shader_parameters/objectColor = Vector4(1, 0, 1, 1)
+position = Vector2(303, 410.3125)
+scale = Vector2(4.3750005, 4.3750005)
+texture = ExtResource("6_yfj8m")
+
+[node name="Brutus" parent="." unique_id=1227397212 instance=ExtResource("9_24sxu")]
+instance_shader_parameters/objectColor = Vector4(1, 0, 0, 1)
+position = Vector2(699, 383.00003)
+scale = Vector2(4.453126, 4.453126)
+
+[node name="Subtractive Actor2" parent="." unique_id=1708392019 instance=ExtResource("9_24sxu")]
+instance_shader_parameters/objectColor = Vector4(0, 0, 1, 1)
+position = Vector2(890, 347.99997)
+scale = Vector2(4.7812543, 4.7812543)
+texture = ExtResource("6_yfj8m")
+
+[node name="roman17" type="Sprite2D" parent="." unique_id=1838631346]
+light_mask = 0
+visibility_layer = 2
+material = SubResource("ShaderMaterial_x8pby")
+instance_shader_parameters/objectColor = Vector4(0, 0.8, 0, 1)
+position = Vector2(679.5, 444.59378)
+scale = Vector2(3.812499, 3.812499)
+texture = ExtResource("6_yfj8m")
+script = ExtResource("4_ytjgp")
+
+[node name="Subtractive Actor3" parent="." unique_id=103115309 instance=ExtResource("9_24sxu")]
+instance_shader_parameters/objectColor = Vector4(0, 0.5, 0, 1)
+position = Vector2(539, 356.00003)
+scale = Vector2(4.125001, 4.125001)
+texture = ExtResource("6_yfj8m")
+
+[node name="roman10" type="Sprite2D" parent="." unique_id=341390706]
+light_mask = 0
+visibility_layer = 2
+material = SubResource("ShaderMaterial_x8pby")
+instance_shader_parameters/objectColor = Vector4(0, 0.2, 0.8, 1)
+position = Vector2(550.99994, 435.99997)
+scale = Vector2(4.1875, 4.1875)
+texture = ExtResource("6_yfj8m")
+script = ExtResource("4_ytjgp")
+
+[node name="HatCirclet" type="Sprite2D" parent="." unique_id=15200599]
+material = SubResource("ShaderMaterial_3kpna")
+instance_shader_parameters/objectColor = Vector4(0, 0.8, 0, 1)
+position = Vector2(303, 423.00003)
+scale = Vector2(4.8749986, 4.8749986)
+texture = ExtResource("10_idb1e")

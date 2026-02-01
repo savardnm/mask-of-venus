@@ -14,9 +14,16 @@ var timer = 0
 signal puzzle_solved
 signal next_step_unlocked
 
+@export  var audioManager : Node
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	timer = -5
+	if audioManager == null:
+		audioManager = get_tree().get_root().find_child("AudioManager")
+	if audioManager:
+		audioManager.progress_music_score()
 	# loader = get_tree().root.get_node(loaderName);
 	if loader:
 		print("has loader")
@@ -38,7 +45,10 @@ func get_next_puzzle():
 	activePuzzle.queue_free()
 
 	activePuzzle = loader.load_puzzle(currentLevel);
-
+	if audioManager == null:
+		audioManager = get_tree().get_root().find_child("AudioManager")
+	if audioManager:
+		audioManager.progress_music_score()
 	if activePuzzle == null:
 		currentLevel = 0
 		activePuzzle = loader.load_puzzle(currentLevel);

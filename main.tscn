@@ -5,7 +5,7 @@
 [ext_resource type="Shader" uid="uid://dq7a7puer14nj" path="res://material/Shader_Add.gdshader" id="4_7mycd"]
 [ext_resource type="Texture2D" uid="uid://dekens6qjnt02" path="res://Sprites/Basic Shapes/Square.png" id="4_lquwl"]
 [ext_resource type="Script" uid="uid://clhoiqvjxcdof" path="res://_scripts/test.gd" id="5_272bh"]
-[ext_resource type="PackedScene" uid="uid://hepwmc3vxi6r" path="res://Objects/dialogue.tscn" id="8_5vw27"]
+[ext_resource type="PackedScene" path="res://Objects/dialogue.tscn" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://d1j6gck5rlp7s" path="res://Objects/spotlight.tscn" id="8_kek77"]
 [ext_resource type="Script" uid="uid://ikl3nxuwggej" path="res://_scripts/selector.gd" id="9_4c57u"]
 
@@ -21,7 +21,7 @@ radius = 17.029387
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kek77"]
 shader = ExtResource("4_7mycd")
 
-[node name="Root" type="Node2D" unique_id=848156233]
+[node name="Root2" type="Node2D" unique_id=848156233]
 
 [node name="Circle3" type="Sprite2D" parent="." unique_id=1431873370]
 material = SubResource("ShaderMaterial_5vw27")
@@ -74,6 +74,10 @@ color = Color(0, 1, 1, 1)
 instance_shader_parameters/objectColor = Vector4(0, 0, 1, 1)
 
 [node name="Dialogue" parent="." unique_id=1481266671 instance=ExtResource("8_5vw27")]
+offset_left = -5.0
+offset_top = -3.0
+offset_right = 1146.0
+offset_bottom = 643.0
 
 [editable path="Spotlight"]
 [editable path="Spotlight2"]

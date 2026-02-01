@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d1j6gck5rlp7s" path="res://Objects/spotlight.tscn" id="8_cmf70"]
 [ext_resource type="PackedScene" path="res://Objects/dialogue.tscn" id="10_1dmfv"]
 [ext_resource type="Script" uid="uid://byl12g3sv1ol5" path="res://_scripts/PuzzleManager.gd" id="10_5fri5"]
+[ext_resource type="AudioStream" uid="uid://ckmhdph6jkoye" path="res://Audio/Music/Theme_Base_1.wav" id="11_4m6s5"]
 [ext_resource type="Script" uid="uid://b4fdt7y380woq" path="res://_scripts/PuzzleLoader.gd" id="11_cvf5x"]
 [ext_resource type="PackedScene" uid="uid://duaodkki0y8ok" path="res://puzzleScenes/testSpawn.tscn" id="12_kpfah"]
 
@@ -87,6 +88,10 @@ offset_left = -5.0
 offset_top = -3.0
 offset_right = 1146.0
 offset_bottom = 643.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1877336203]
+stream = ExtResource("11_4m6s5")
+autoplay = true
 
 [editable path="Spotlight3"]
 [editable path="Spotlight4"]

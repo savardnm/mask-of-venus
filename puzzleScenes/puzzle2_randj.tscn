@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://d1gqdibb22j0f"]
 
-[ext_resource type="Script" uid="uid://hk27ngxj2a1f" path="res://_scripts/Puzzle.gd" id="1_5ylb8"]
-[ext_resource type="Shader" uid="uid://bea5lkum3nd0o" path="res://material/basic.gdshader" id="2_5ksbv"]
+[ext_resource type="Script" uid="uid://hk27ngxj2a1f" path="res://_scripts/puzzle.gd" id="1_5ylb8"]
+[ext_resource type="Shader" path="res://material/basic.gdshader" id="2_5ksbv"]
 [ext_resource type="Texture2D" uid="uid://tv183057h58t" path="res://Sprites/Characters/romeo.png" id="3_y6pt2"]
 [ext_resource type="Script" uid="uid://do16jfth1mfhm" path="res://_scripts/prop.gd" id="4_l8e4w"]
 [ext_resource type="Texture2D" uid="uid://b2bfieda8qk2j" path="res://Sprites/Characters/juliet.png" id="5_sokn0"]
+[ext_resource type="Script" uid="uid://bwcyh1ntw82jw" path="res://_scripts/puzzle_dialogue.gd" id="6_5ksbv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ruhxn"]
 shader = ExtResource("2_5ksbv")
@@ -13,6 +14,7 @@ shader = ExtResource("2_5ksbv")
 shader = ExtResource("2_5ksbv")
 
 [node name="Root" type="Node2D" unique_id=848156233 node_paths=PackedStringArray("goalObject", "otherObject")]
+texture_filter = 1
 script = ExtResource("1_5ylb8")
 goalObject = NodePath("Romeo")
 otherObject = NodePath("juliet")
@@ -38,3 +40,12 @@ script = ExtResource("4_l8e4w")
 [node name="Node2D" type="Node2D" parent="." unique_id=1123501620]
 position = Vector2(468, 263)
 scale = Vector2(0.52, 0.36)
+
+[node name="PuzzleDialogue" type="Node2D" parent="." unique_id=896055065]
+script = ExtResource("6_5ksbv")
+puzzle_prompt_text = "[color=cyana]O Romeo, Romeo! wherefore art thou Romeo?
+Deny thy father and refuse thy name...\"[/color]
+[i]Could these star-crossed lovers not be saved?[/i]"
+puzzle_complete_text = "[color=cyan]Thou art thyself, and a Montague besides![/color]
+[i]Ah, there's a happier ending![/i]"
+easter_egg_text = "[color=magenta][i]ehem...[/i] O Romeo, Romeo... Where art thou Romeo?[/color]"

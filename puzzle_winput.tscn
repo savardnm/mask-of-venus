@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://byl12g3sv1ol5" path="res://_scripts/PuzzleManager.gd" id="10_5fri5"]
 [ext_resource type="PackedScene" uid="uid://dxbe0q2p8ygu3" path="res://Objects/Curtains.tscn" id="11_4m6s5"]
 [ext_resource type="Script" uid="uid://b4fdt7y380woq" path="res://_scripts/PuzzleLoader.gd" id="11_cvf5x"]
+[ext_resource type="Texture2D" uid="uid://dqdv1yxq0bqji" path="res://Sprites/Background and Stage/stage.png" id="12_5fri5"]
 [ext_resource type="PackedScene" uid="uid://duaodkki0y8ok" path="res://puzzleScenes/testSpawn.tscn" id="12_kpfah"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4m6s5"]
@@ -25,17 +26,6 @@ position = Vector2(778, 309)
 
 [node name="Selector" parent="." unique_id=323801360 instance=ExtResource("6_1dmfv")]
 position = Vector2(440, 80)
-
-[node name="puzzleManager" type="Node" parent="." unique_id=1441602274 node_paths=PackedStringArray("loader", "dialogue", "debugText")]
-script = ExtResource("10_5fri5")
-loaderName = "PuzzleLoader"
-loader = NodePath("../PuzzleLoader")
-dialogue = NodePath("../Dialogue")
-debugText = NodePath("../debugoutputtext")
-
-[node name="PuzzleLoader" type="Node" parent="." unique_id=723780575]
-script = ExtResource("11_cvf5x")
-puzzleList = Array[PackedScene]([ExtResource("4_51arp"), ExtResource("5_454rm"), ExtResource("12_kpfah")])
 
 [node name="debugoutputtext" type="RichTextLabel" parent="." unique_id=1498843965]
 offset_right = 40.0
@@ -60,7 +50,8 @@ texture = ExtResource("7_gxjkp")
 
 [node name="Spotlight3" parent="." unique_id=1141804037 instance=ExtResource("8_cmf70")]
 z_index = 100
-position = Vector2(925, 430)
+position = Vector2(-1753, -468)
+home_position = Vector2(927, 358)
 size = 100
 color = Color(1, 0, 1, 1)
 shader = SubResource("ShaderMaterial_1dmfv")
@@ -70,7 +61,8 @@ instance_shader_parameters/objectColor = Vector4(0, 1, 0, 1)
 
 [node name="Spotlight4" parent="." unique_id=1623100901 instance=ExtResource("8_cmf70")]
 z_index = 100
-position = Vector2(253, 81)
+position = Vector2(1436, 162)
+home_position = Vector2(185, 168)
 size = 100
 color = Color(0, 1, 1, 1)
 
@@ -79,7 +71,8 @@ instance_shader_parameters/objectColor = Vector4(1, 0, 0, 1)
 
 [node name="Spotlight5" parent="." unique_id=1366813158 instance=ExtResource("8_cmf70")]
 z_index = 100
-position = Vector2(1010, 87)
+position = Vector2(1397, 420)
+home_position = Vector2(1010, 87)
 size = 100
 color = Color(0, 1, 1, 1)
 
@@ -103,8 +96,34 @@ z_index = 11
 position = Vector2(1192, -119)
 scale = Vector2(-1.2, 1)
 
+[node name="PuzzleLoader" type="Node" parent="." unique_id=723780575 node_paths=PackedStringArray("dialogue")]
+script = ExtResource("11_cvf5x")
+puzzleList = Array[PackedScene]([ExtResource("12_kpfah"), ExtResource("4_51arp"), ExtResource("5_454rm")])
+dialogue = NodePath("../Dialogue")
+
+[node name="puzzleManager" type="Node" parent="." unique_id=1441602274 node_paths=PackedStringArray("loader", "dialogue", "debugText")]
+script = ExtResource("10_5fri5")
+loaderName = "PuzzleLoader"
+loader = NodePath("../PuzzleLoader")
+dialogue = NodePath("../Dialogue")
+debugText = NodePath("../debugoutputtext")
+
+[node name="Stage" type="Sprite2D" parent="." unique_id=1160562798]
+texture_filter = 1
+position = Vector2(581.99994, 566.25)
+scale = Vector2(10.962263, 7.2045445)
+texture = ExtResource("12_5fri5")
+
+[connection signal="complete_finished" from="Dialogue" to="Curtain" method="close_curtains"]
+[connection signal="curtains_closed" from="Curtain" to="Spotlight3" method="go_home"]
+[connection signal="curtains_closed" from="Curtain" to="Spotlight4" method="go_home"]
+[connection signal="curtains_closed" from="Curtain" to="Spotlight5" method="go_home"]
+[connection signal="curtains_closing" from="Curtain" to="Curtain2" method="close_curtains"]
 [connection signal="curtains_opened" from="Curtain" to="Dialogue" method="give_prompt"]
-[connection signal="curtains_opening" from="Curtain" to="Curtain2" method="open_curtains"]
+[connection signal="curtains_closed" from="Curtain2" to="puzzleManager" method="_on_curtain_2_curtains_closed"]
+[connection signal="puzzle_spawned" from="PuzzleLoader" to="Curtain" method="open_curtains"]
+[connection signal="puzzle_spawned" from="PuzzleLoader" to="Curtain2" method="open_curtains"]
+[connection signal="puzzle_solved" from="puzzleManager" to="Dialogue" method="give_complete"]
 
 [editable path="Spotlight3"]
 [editable path="Spotlight4"]

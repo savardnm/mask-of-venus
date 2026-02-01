@@ -12,10 +12,13 @@ signal curtains_closing
 signal curtains_opening
 
 
+func _ready():
+	print("anim: ", animation_player)
 
 func _process(delta: float):
 	if transitioning:
 		if not animation_player.is_playing():
+			print("done animating!", name)
 			if open:
 				curtains_closed.emit()
 				transitioning = false
@@ -26,14 +29,20 @@ func _process(delta: float):
 				open = true
 
 func close_curtains():
-	if open:
-		animation_player.play("curtain_pull")
-		transitioning = true
+	print("open?")
+	# if open:
+	print("closing.")
+	curtains_closing.emit()
+	animation_player.play("curtain_pull")
+	transitioning = true
 
 func open_curtains():
-	if not open:
-		animation_player.play("Curtain Push")
-		transitioning = true
+	print("closed?")
+	# if not open:
+	print("opening")
+	curtains_opening.emit()
+	animation_player.play("Curtain Push")
+	transitioning = true
 
 
 
@@ -44,7 +53,6 @@ func _on_node_2d_accept_pressed():
 func toggle():
 	if open:
 		close_curtains()
-		curtains_closing.emit()
 	else:
 		open_curtains()
-		curtains_opening.emit()
+

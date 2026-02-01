@@ -12,6 +12,7 @@ var timer = 0
 
 
 signal puzzle_solved
+signal next_step_unlocked
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -45,7 +46,7 @@ func get_next_puzzle():
 	pause_active_puzzle()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(delta: float):
 	if puzzleSolved == true:
 		if Input.is_action_just_pressed("ui_accept") and activePuzzle:
 			puzzle_solved.emit()
@@ -57,9 +58,11 @@ func _process(delta: float) -> void:
 
 		# if Input.is_action_just_pressed("ui_accept") and activePuzzle:
 		if debugText:
-			debugText.text = str(activePuzzle.check_if_solved())
+			# debugText.text = str(activePuzzle.check_if_solved())
+			debugText.text = "[tornado]→[Space]Continue...[/tornado]"
 		if activePuzzle.check_if_solved():
 			puzzleSolved = true
+			next_step_unlocked.emit()
 			
 
 	pass

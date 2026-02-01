@@ -84,7 +84,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_1mvx7"]
 resource_name = "curtain_pull"
-length = 1.591
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -92,10 +92,10 @@ tracks/0/path = NodePath(".:skew")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.26666668, 0.5, 1.2333333, 1.5666667, 3.6333334),
-"transitions": PackedFloat32Array(2.0705302, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.26666668, 0.5, 1.2333333, 1.5666667),
+"transitions": PackedFloat32Array(2.0705302, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, -0.4363323129985824, -0.6056292504420324, 0.18151424220741016, 0.0, -0.7714355293814937]
+"values": [0.0, -0.4363323129985824, -0.6056292504420324, 0.18151424220741016, 0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false

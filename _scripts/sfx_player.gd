@@ -11,4 +11,5 @@ func play_drumroll():
 func play_select_spotlight():
 	audio_manager.play_sfx("select")
 
-
+func play_victory():
+	audio_manager.play_sfx("victory")

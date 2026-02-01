@@ -12,6 +12,7 @@ var sounds = {
 	"clap": preload("res://Audio/SFX//Applause.wav"),
 	"drumroll": preload("res://Audio/SFX/Drumroll.wav"),
 	"select": preload("res://Audio/SFX/Flashlight_Select.wav"),
+	"victory": preload("res://Audio/SFX/Victory.wav"),
 
 	"narrator": preload("res://Audio/Voices/Voice_1.wav"),
 		"narrator2": preload("res://Audio/Voices/Voice_2.wav"),

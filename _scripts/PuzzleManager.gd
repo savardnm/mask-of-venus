@@ -39,6 +39,7 @@ func get_next_puzzle():
 
 	
 	pause_active_puzzle()
+	print("pausing active puzzle: ", activePuzzle)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -2,6 +2,7 @@ extends Node
 
 @export var loaderName : String;
 @export var loader : Node
+@export var dialogue : Node
 @export var debugText : RichTextLabel
 @export var activePuzzle : Node
 var currentLevel = 0
@@ -10,7 +11,6 @@ var timer = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("start")
 	# loader = get_tree().root.get_node(loaderName);
 	if loader:
 		print("has loader")

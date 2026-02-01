@@ -1,3 +1,16 @@
 [gd_scene format=3 uid="uid://cjlftrl0gk7kg"]
 
+[ext_resource type="Script" uid="uid://dvlcyps4035se" path="res://input_tester.gd" id="1_hbec6"]
+[ext_resource type="PackedScene" uid="uid://hepwmc3vxi6r" path="res://Objects/dialogue.tscn" id="2_n0s65"]
+
 [node name="Node2D" type="Node2D" unique_id=154915188]
+script = ExtResource("1_hbec6")
+
+[node name="Dialogue" parent="." unique_id=1481266671 instance=ExtResource("2_n0s65")]
+offset_left = 2.0
+offset_top = 0.0
+offset_right = 1153.0
+offset_bottom = 646.0
+easter_egg_text = "[color=magenta][i]ehem...[/i] O Romeo, Romeo... [i][b]Where[/b][/i] art thou Romeo?[/color]"
+
+[connection signal="accept_pressed" from="." to="Dialogue" method="_on_node_2d_accept_pressed"]

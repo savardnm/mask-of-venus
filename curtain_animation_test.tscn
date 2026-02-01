@@ -1,75 +1,20 @@
-[gd_scene format=3 uid="uid://bn42k40ibfwvx"]
+[gd_scene format=3 uid="uid://exo0s1fc5oay"]
 
-[ext_resource type="Texture2D" uid="uid://bdkbmok3uyvcj" path="res://Sprites/Background and Stage/curtains.png" id="1_a1sre"]
-
-[sub_resource type="Animation" id="Animation_qnbks"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:skew")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_1mvx7"]
-resource_name = "curtain_pull"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:skew")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.26666668, 0.5, 0.96666664),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, -0.4363323129985824, -0.6056292504420324, -0.7714355293814937]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.96666664),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(8, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_1j8j3"]
-_data = {
-&"RESET": SubResource("Animation_qnbks"),
-&"curtain_pull": SubResource("Animation_1mvx7")
-}
+[ext_resource type="PackedScene" uid="uid://dxbe0q2p8ygu3" path="res://Objects/Curtains.tscn" id="1_qnbks"]
+[ext_resource type="Script" uid="uid://dvlcyps4035se" path="res://input_tester.gd" id="2_1mvx7"]
 
 [node name="Node2D" type="Node2D" unique_id=1501850055]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1067979782]
-root_node = NodePath("../Polygon2D")
-libraries/ = SubResource("AnimationLibrary_1j8j3")
+[node name="Curtain" parent="." unique_id=1288015139 instance=ExtResource("1_qnbks")]
+position = Vector2(-21, -5)
+scale = Vector2(1.1, 1)
 
-[node name="Polygon2D" type="Polygon2D" parent="." unique_id=710687635]
-texture_filter = 1
-texture = ExtResource("1_a1sre")
-polygon = PackedVector2Array(-0.54610443, 67.28105, 39.601387, 67.28105, 41.002426, 1.798413, 1.349289, 1.3319056)
-uv = PackedVector2Array(-0.54610443, 67.28105, 39.601387, 67.28105, 41.002426, 1.798413, 1.349289, 1.3319056)
+[node name="Curtain2" parent="." unique_id=60819158 instance=ExtResource("1_qnbks")]
+position = Vector2(1168, -1)
+scale = Vector2(-1.1, 1)
+
+[node name="Node2D" type="Node2D" parent="." unique_id=949832158]
+script = ExtResource("2_1mvx7")
+
+[connection signal="accept_pressed" from="Node2D" to="Curtain" method="_on_node_2d_accept_pressed"]
+[connection signal="accept_pressed" from="Node2D" to="Curtain2" method="_on_node_2d_accept_pressed"]

@@ -25,7 +25,7 @@ shader = ExtResource("3_4m6s5")
 [node name="PuzzleWinput Root" type="Node2D" unique_id=848156233]
 
 [node name="AudioManager" type="AudioStreamPlayer" parent="." unique_id=1397479599 node_paths=PackedStringArray("musicPlayer", "sfxPlayer")]
-volume_db = 0.2
+volume_db = -48.328
 autoplay = true
 playback_type = 1
 script = ExtResource("15_gxjkp")

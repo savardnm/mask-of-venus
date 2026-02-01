@@ -82,7 +82,7 @@ func play_sfx(sound_name: String, volume_db: float = 1.0):
 		asp.play()
 
 
-func play_music(music_path: String, shouldLoop:bool,volume_db: float = 1.0):
+func play_music(music_path: String, shouldLoop:bool,volume_db: float = -10.0):
 	if sounds.has(music_path) and musicPlayer:
 		var music_node = musicPlayer
 		music_node.stream = sounds[music_path]
@@ -160,6 +160,6 @@ func progress_music_score():
 		trackName = trackName + "9"
 
 	print(trackName)
-	play_music(trackName,true,0.1)
+	play_music(trackName,true,-10.1)
 	if musicProgression > 12:
 		musicProgression = 0

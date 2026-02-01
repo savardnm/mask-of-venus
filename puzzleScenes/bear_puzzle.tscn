@@ -1,22 +1,20 @@
 [gd_scene format=3 uid="uid://dat0x6vuf5n5d"]
 
-[ext_resource type="Script" uid="uid://dhskevdurg575" path="res://_scripts/puzzle_bear.gd" id="1_x5enh"]
-[ext_resource type="Shader" uid="uid://bea5lkum3nd0o" path="res://material/basic.gdshader" id="2_x5enh"]
+[ext_resource type="Script" path="res://_scripts/puzzle_bear.gd" id="1_x5enh"]
+[ext_resource type="Shader" path="res://material/basic.gdshader" id="2_x5enh"]
 [ext_resource type="Texture2D" uid="uid://tv183057h58t" path="res://Sprites/Characters/romeo.png" id="3_khh3f"]
 [ext_resource type="Texture2D" uid="uid://dekens6qjnt02" path="res://Sprites/Basic Shapes/Square.png" id="3_x5enh"]
 [ext_resource type="Script" uid="uid://do16jfth1mfhm" path="res://_scripts/prop.gd" id="4_q4v66"]
-[ext_resource type="Texture2D" uid="uid://bcq4lqvrr57fs" path="res://Sprites/Characters/bear_twohands.png" id="5_snjx7"]
+[ext_resource type="PackedScene" uid="uid://cjnydtfe8556u" path="res://Objects/Actor.tscn" id="6_x5enh"]
+[ext_resource type="Script" uid="uid://bwcyh1ntw82jw" path="res://_scripts/puzzle_dialogue.gd" id="7_khh3f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i5lm3"]
 shader = ExtResource("2_x5enh")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ruhxn"]
-shader = ExtResource("2_x5enh")
-
 [node name="Root" type="Node2D" unique_id=848156233 node_paths=PackedStringArray("bear", "rescueObject", "background")]
 script = ExtResource("1_x5enh")
-bear = NodePath("bear")
-rescueObject = NodePath("Romeo")
+bear = NodePath("Bear")
+rescueObject = NodePath("Romeo2")
 background = NodePath("background")
 
 [node name="background" type="Sprite2D" parent="." unique_id=1875141375]
@@ -37,24 +35,22 @@ scale = Vector2(4.4492188, 0.85546887)
 texture = ExtResource("3_x5enh")
 script = ExtResource("4_q4v66")
 
-[node name="Romeo" type="Sprite2D" parent="." unique_id=2001052172]
-modulate = Color(1, 1, 0, 1)
-material = SubResource("ShaderMaterial_ruhxn")
-instance_shader_parameters/objectColor = Vector4(1, 0, 1, 1)
-position = Vector2(108, 502)
-scale = Vector2(3, 3)
-texture = ExtResource("3_khh3f")
-script = ExtResource("4_q4v66")
-
-[node name="bear" type="Sprite2D" parent="." unique_id=1052321452]
-texture_filter = 1
-material = SubResource("ShaderMaterial_i5lm3")
-instance_shader_parameters/objectColor = Vector4(0, 1, 0, 1)
-position = Vector2(1071, 500.00003)
-scale = Vector2(3, 3)
-texture = ExtResource("5_snjx7")
-script = ExtResource("4_q4v66")
+[node name="Bear" parent="." unique_id=83004834 instance=ExtResource("6_x5enh")]
+position = Vector2(800.00006, 467)
+scale = Vector2(-5, 5)
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1123501620]
 position = Vector2(468, 263)
 scale = Vector2(0.52, 0.36)
+
+[node name="Romeo2" parent="." unique_id=994194707 instance=ExtResource("6_x5enh")]
+instance_shader_parameters/objectColor = Vector4(1, 0, 1, 1)
+position = Vector2(229, 502)
+texture = ExtResource("3_khh3f")
+
+[node name="PuzzleDialogue" type="Node2D" parent="." unique_id=1487310960]
+script = ExtResource("7_khh3f")
+puzzle_prompt_text = "[color=magenta][tornado]AAAAAAAH[/tornado], A ravenous beast aproacheth![/color]
+[i]Poor Antigonus, victim of fate...[/i]"
+puzzle_complete_text = "[color=magenta]I have heard, but not believed, the spirits o' the dead may walk again...[/color]"
+easter_egg_text = "[color=green][i]RAWR???[/i][/color]"

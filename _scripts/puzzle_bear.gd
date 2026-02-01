@@ -22,7 +22,7 @@ func check_if_solved():
 	if bear.get_current_color() == background.get_current_color():
 		return true
 	if rescueObject.get_current_color() == background.get_current_color():
-		return true
+		return true 
 
 	return false
 

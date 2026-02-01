@@ -5,9 +5,20 @@ var transitioning = false
 
 @onready var animation_player: AnimationPlayer = find_child("AnimationPlayer")
 
+
+signal curtains_closed
+signal curtains_opened
+signal curtains_closing
+signal curtains_opening
+
+
+func _ready():
+	print("anim: ", animation_player)
+
 func _process(delta: float):
 	if transitioning:
 		if not animation_player.is_playing():
+			print("done animating!", name)
 			if open:
 				curtains_closed.emit()
 				transitioning = false
@@ -18,18 +29,20 @@ func _process(delta: float):
 				open = true
 
 func close_curtains():
-	if open:
-		animation_player.play("curtain_pull")
-		transitioning = true
+	print("open?")
+	# if open:
+	print("closing.")
+	curtains_closing.emit()
+	animation_player.play("curtain_pull")
+	transitioning = true
 
 func open_curtains():
-	if not open:
-		animation_player.play("Curtain Push")
-		transitioning = true
-
-
-signal curtains_closed
-signal curtains_opened
+	print("closed?")
+	# if not open:
+	print("opening")
+	curtains_opening.emit()
+	animation_player.play("Curtain Push")
+	transitioning = true
 
 
 
@@ -42,3 +55,4 @@ func toggle():
 		close_curtains()
 	else:
 		open_curtains()
+

@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b2bfieda8qk2j" path="res://Sprites/Characters/juliet.png" id="5_7wa6u"]
 [ext_resource type="Script" uid="uid://ujgwho7f5i0y" path="res://_scripts/magnet_zone.gd" id="5_i5lm3"]
 [ext_resource type="Script" uid="uid://do16jfth1mfhm" path="res://_scripts/prop.gd" id="5_ruhxn"]
+[ext_resource type="Script" uid="uid://bwcyh1ntw82jw" path="res://_scripts/puzzle_dialogue.gd" id="8_yl5nb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ruhxn"]
 shader = ExtResource("4_7wa6u")
@@ -27,10 +28,11 @@ modulate = Color(1, 1, 0, 1)
 texture_filter = 1
 material = SubResource("ShaderMaterial_ruhxn")
 instance_shader_parameters/objectColor = Vector4(0, 0, 1, 1)
-position = Vector2(446, 501.74084)
+position = Vector2(444, 486.74084)
 scale = Vector2(3, 3)
 texture = ExtResource("3_7wa6u")
 script = ExtResource("5_ruhxn")
+metadata/_edit_group_ = true
 
 [node name="Magnet Zone" type="Area2D" parent="Romeo" unique_id=491551238]
 script = ExtResource("5_i5lm3")
@@ -42,10 +44,11 @@ shape = SubResource("CapsuleShape2D_ruhxn")
 texture_filter = 1
 material = SubResource("ShaderMaterial_i5lm3")
 instance_shader_parameters/objectColor = Vector4(1, 0, 1, 1)
-position = Vector2(592.38367, 500.5)
+position = Vector2(590.38367, 485.5)
 scale = Vector2(3, 3)
 texture = ExtResource("5_7wa6u")
 script = ExtResource("5_ruhxn")
+metadata/_edit_group_ = true
 
 [node name="Magnet Zone" type="Area2D" parent="juliet" unique_id=529852860]
 script = ExtResource("5_i5lm3")
@@ -56,3 +59,12 @@ shape = SubResource("CapsuleShape2D_ruhxn")
 [node name="Node2D" type="Node2D" parent="." unique_id=1123501620]
 position = Vector2(468, 263)
 scale = Vector2(0.52, 0.36)
+
+[node name="PuzzleDialogue" type="Node2D" parent="." unique_id=2121550889]
+script = ExtResource("8_yl5nb")
+puzzle_prompt_text = "[color=magenta]O Romeo, Romeo! wherefore art thou Romeo?
+Deny thy father and refuse thy name...\"[/color]
+[i]Could these star-crossed lovers not be saved?[/i]"
+puzzle_complete_text = "[color=magenta]Thou art thyself, and a Montague besides![/color]
+[i]Ah, there's a happier ending![/i]"
+easter_egg_text = "[color=magenta][i]ehem...[/i] O Romeo, Romeo... Where art thou Romeo?[/color]"

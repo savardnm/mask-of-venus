@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://bq2oueahfe5ht"]
+[gd_scene format=3 uid="uid://cla56xkjblabd"]
 
-[ext_resource type="Script" uid="uid://dhskevdurg575" path="res://_scripts/puzzle_bear.gd" id="1_c164n"]
-[ext_resource type="Shader" uid="uid://bea5lkum3nd0o" path="res://material/basic.gdshader" id="2_dhdah"]
+[ext_resource type="Script" path="res://_scripts/puzzle_bear.gd" id="1_c164n"]
+[ext_resource type="Shader" path="res://material/basic.gdshader" id="2_dhdah"]
 [ext_resource type="Texture2D" uid="uid://dekens6qjnt02" path="res://Sprites/Basic Shapes/Square.png" id="3_ovm2y"]
 [ext_resource type="Script" uid="uid://do16jfth1mfhm" path="res://_scripts/prop.gd" id="4_t3db8"]
 [ext_resource type="Texture2D" uid="uid://tv183057h58t" path="res://Sprites/Characters/romeo.png" id="5_3kpna"]
@@ -14,12 +14,10 @@ shader = ExtResource("2_dhdah")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x8pby"]
 shader = ExtResource("7_4sl0n")
 
-[node name="Root" type="Node2D" unique_id=848156233 node_paths=PackedStringArray("bear", "rescueObject", "background", "hunter")]
+[node name="Root" type="Node2D" unique_id=848156233 node_paths=PackedStringArray("rescueObject")]
+texture_filter = 1
 script = ExtResource("1_c164n")
-bear = NodePath("")
 rescueObject = NodePath("Romeo")
-background = NodePath("")
-hunter = NodePath("brutus")
 
 [node name="wall" type="Sprite2D" parent="." unique_id=1831960351]
 modulate = Color(0.9, 0.9, 0.9, 1)

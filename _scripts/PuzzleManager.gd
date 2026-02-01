@@ -9,6 +9,8 @@ var currentLevel = 0
 var puzzleSolved = false
 var timer = 0
 
+signal puzzle_solved
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# loader = get_tree().root.get_node(loaderName);
@@ -19,6 +21,8 @@ func _ready() -> void:
 
 
 func get_next_puzzle():
+
+	puzzleSolved = false
 	currentLevel = currentLevel + 1
 	#  delete the previous puzzle
 	activePuzzle.queue_free()
@@ -32,8 +36,7 @@ func get_next_puzzle():
 func _process(delta: float) -> void:
 	if puzzleSolved == true:
 		if Input.is_action_just_pressed("ui_accept") and activePuzzle:
-			get_next_puzzle()
-			puzzleSolved = false
+			puzzle_solved.emit()
 		return
 	timer = timer + delta
 	# we dont need to check every frame
@@ -48,3 +51,7 @@ func _process(delta: float) -> void:
 			
 
 	pass
+
+
+func _on_curtain_2_curtains_closed():
+	get_next_puzzle()

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dioxkrrke01xu"
-path="res://.godot/imported/Whisling.wav-fd60570ea665c586ebf8b3c2e610339e.sample"
+path="res://.godot/imported/Whistling.wav-8851a06af03043e9d2198bc9791c8b9e.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/Whisling.wav"
-dest_files=["res://.godot/imported/Whisling.wav-fd60570ea665c586ebf8b3c2e610339e.sample"]
+source_file="res://Audio/SFX/Whistling.wav"
+dest_files=["res://.godot/imported/Whistling.wav-8851a06af03043e9d2198bc9791c8b9e.sample"]
 
 [params]
 

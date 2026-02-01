@@ -6,12 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://db0ebxc0hdqyr" path="res://Objects/selector.tscn" id="6_1dmfv"]
 [ext_resource type="Texture2D" uid="uid://dekens6qjnt02" path="res://Sprites/Basic Shapes/Square.png" id="7_gxjkp"]
 [ext_resource type="PackedScene" uid="uid://d1j6gck5rlp7s" path="res://Objects/spotlight.tscn" id="8_cmf70"]
+[ext_resource type="PackedScene" path="res://Objects/dialogue.tscn" id="10_1dmfv"]
 [ext_resource type="Script" uid="uid://byl12g3sv1ol5" path="res://_scripts/PuzzleManager.gd" id="10_5fri5"]
 [ext_resource type="Script" uid="uid://b4fdt7y380woq" path="res://_scripts/PuzzleLoader.gd" id="11_cvf5x"]
 [ext_resource type="PackedScene" uid="uid://duaodkki0y8ok" path="res://puzzleScenes/testSpawn.tscn" id="12_kpfah"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4m6s5"]
-size = Vector2(873.8872, 62.25186)
+size = Vector2(873.8872, 78.79326)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1dmfv"]
 shader = ExtResource("3_4m6s5")
@@ -24,10 +25,11 @@ position = Vector2(778, 309)
 [node name="Selector" parent="." unique_id=323801360 instance=ExtResource("6_1dmfv")]
 position = Vector2(440, 80)
 
-[node name="puzzleManager" type="Node" parent="." unique_id=1441602274 node_paths=PackedStringArray("loader", "debugText")]
+[node name="puzzleManager" type="Node" parent="." unique_id=1441602274 node_paths=PackedStringArray("loader", "dialogue", "debugText")]
 script = ExtResource("10_5fri5")
 loaderName = "PuzzleLoader"
 loader = NodePath("../PuzzleLoader")
+dialogue = NodePath("../Dialogue")
 debugText = NodePath("../debugoutputtext")
 
 [node name="PuzzleLoader" type="Node" parent="." unique_id=723780575]
@@ -44,11 +46,12 @@ autowrap_mode = 0
 position = Vector2(295, 587)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=223068846]
-position = Vector2(286.865, 9.397522)
+position = Vector2(286.865, -1.602478)
 scale = Vector2(1.33, 1.33)
 shape = SubResource("RectangleShape2D_4m6s5")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=865923527]
+visible = false
 modulate = Color(0.38431373, 0.1882353, 0, 1)
 position = Vector2(282.49994, 9.999981)
 scale = Vector2(4.550781, 0.36718735)
@@ -78,6 +81,12 @@ color = Color(0, 1, 1, 1)
 
 [node name="Color Circle" parent="Spotlight5" index="1" unique_id=81173429]
 instance_shader_parameters/objectColor = Vector4(0, 0, 1, 1)
+
+[node name="Dialogue" parent="." unique_id=1481266671 instance=ExtResource("10_1dmfv")]
+offset_left = -5.0
+offset_top = -3.0
+offset_right = 1146.0
+offset_bottom = 643.0
 
 [editable path="Spotlight3"]
 [editable path="Spotlight4"]

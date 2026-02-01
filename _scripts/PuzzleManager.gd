@@ -19,6 +19,10 @@ func _ready() -> void:
 		activePuzzle = loader.load_puzzle(0);
 	pass # Replace with function body.
 
+func pause_active_puzzle():
+	activePuzzle.waiting = true
+func resume_active_puzzle():
+	activePuzzle.waiting = false
 
 func get_next_puzzle():
 
@@ -28,9 +32,13 @@ func get_next_puzzle():
 	activePuzzle.queue_free()
 
 	activePuzzle = loader.load_puzzle(currentLevel);
+
 	if activePuzzle == null:
 		currentLevel = 0
 		activePuzzle = loader.load_puzzle(currentLevel);
+
+	
+	pause_active_puzzle()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

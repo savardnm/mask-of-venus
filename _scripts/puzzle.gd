@@ -1,5 +1,6 @@
 extends Node
 
+var waiting = false
 @export var goalObject : Node;
 @export var otherObject : Node;
 # Called when the node enters the scene tree for the first time.
@@ -11,5 +12,8 @@ func _process(delta: float) -> void:
 	pass
 
 func check_if_solved():
+	if waiting:
+		return false
+
 	if goalObject and otherObject:
 		return goalObject.get_current_color() == otherObject.get_current_color()

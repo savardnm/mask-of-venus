@@ -36,14 +36,20 @@ func _process(delta: float):
 	
 
 func give_prompt():
+	if phase == 0:
+		return
 	read_text(puzzle_prompt_text)
 	phase = 0
 	
 func give_complete():
+	if phase == 2:
+		return
 	read_text(puzzle_complete_text)
 	phase = 2
 
 func give_easter_egg():
+	if phase == 4:
+		return
 	read_text(easter_egg_text)
 	phase = 4
 

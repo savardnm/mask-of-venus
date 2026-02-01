@@ -2,7 +2,8 @@ extends Area2D
 class_name Spotlight
 
 
-@export var home_position = Vector2.ZERO
+var rng = RandomNumberGenerator.new()
+@export var home_position = [Vector2.ZERO]
 
 var claimed = false
 var going_home
@@ -13,7 +14,7 @@ var going_home
 # 		size = value
 # 		scale = Vector2(size/100, size/100)
 
-@export var size = 100
+var size = 100
 
 @export var color = Color(1,1,1,0.5):
 	set(value):
@@ -44,7 +45,7 @@ func _ready():
 	pass # Replace with function body.
 
 func draw_outline():
-	draw_circle(Vector2.ZERO, size, Color.WHITE, false, 1)
+	draw_circle(Vector2.ZERO, 100, Color.WHITE, false, 1)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float):
@@ -73,7 +74,8 @@ func _process(delta: float):
 	pass
 
 func go_home():
-	target_position = home_position
+	rng.randomize() # Seed with a time-based value
+	target_position = home_position[rng.randi_range(0, home_position.size()-1)]
 	going_home = true
 
 func _draw():

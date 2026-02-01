@@ -69,7 +69,6 @@ offset_top = 347.0
 offset_right = 1127.0
 offset_bottom = 415.0
 bbcode_enabled = true
-text = "AAAAAAAAAA"
 scroll_active = false
 scroll_following_visible_characters = true
 horizontal_alignment = 1

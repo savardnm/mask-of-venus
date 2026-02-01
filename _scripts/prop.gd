@@ -1,4 +1,5 @@
 extends Node
+class_name Actor
 
 
 @onready var viewport : Viewport  
@@ -13,4 +14,5 @@ func _process(delta: float) -> void:
 	pass
 
 func get_current_color():
-	return viewport.get_texture().get_image().get_pixel(self.position.x,self.position.y) 
+	viewport = get_tree().root 
+	return viewport.get_texture().get_image().get_pixel(self.global_position.x,self.global_position.y) 

@@ -6,46 +6,31 @@
 [ext_resource type="Texture2D" uid="uid://b2bfieda8qk2j" path="res://Sprites/Characters/juliet.png" id="5_7wa6u"]
 [ext_resource type="Script" uid="uid://ujgwho7f5i0y" path="res://_scripts/magnet_zone.gd" id="5_i5lm3"]
 [ext_resource type="Script" uid="uid://do16jfth1mfhm" path="res://_scripts/prop.gd" id="5_ruhxn"]
+[ext_resource type="Texture2D" uid="uid://8crbck05tqyd" path="res://Sprites/Background and Stage/tower.png" id="6_yl5nb"]
 [ext_resource type="Script" uid="uid://bwcyh1ntw82jw" path="res://_scripts/puzzle_dialogue.gd" id="8_yl5nb"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ruhxn"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i5lm3"]
 shader = ExtResource("4_7wa6u")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ruhxn"]
 radius = 7.6666718
 height = 35.506104
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_i5lm3"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ruhxn"]
 shader = ExtResource("4_7wa6u")
 
 [node name="Root" type="Node2D" unique_id=848156233 node_paths=PackedStringArray("goalObject", "otherObject")]
+texture_filter = 1
 script = ExtResource("1_i5lm3")
 goalObject = NodePath("Romeo")
 otherObject = NodePath("juliet")
-
-[node name="Romeo" type="Sprite2D" parent="." unique_id=2001052172]
-modulate = Color(1, 1, 0, 1)
-texture_filter = 1
-material = SubResource("ShaderMaterial_ruhxn")
-instance_shader_parameters/objectColor = Vector4(0, 0, 1, 1)
-position = Vector2(444, 486.74084)
-scale = Vector2(3, 3)
-texture = ExtResource("3_7wa6u")
-script = ExtResource("5_ruhxn")
-metadata/_edit_group_ = true
-
-[node name="Magnet Zone" type="Area2D" parent="Romeo" unique_id=491551238]
-script = ExtResource("5_i5lm3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Romeo/Magnet Zone" unique_id=763123036]
-shape = SubResource("CapsuleShape2D_ruhxn")
 
 [node name="juliet" type="Sprite2D" parent="." unique_id=1052321452]
 texture_filter = 1
 material = SubResource("ShaderMaterial_i5lm3")
 instance_shader_parameters/objectColor = Vector4(1, 0, 1, 1)
-position = Vector2(590.38367, 485.5)
-scale = Vector2(3, 3)
+position = Vector2(543, 199.75002)
+scale = Vector2(3.8749995, 4.1060605)
 texture = ExtResource("5_7wa6u")
 script = ExtResource("5_ruhxn")
 metadata/_edit_group_ = true
@@ -54,6 +39,28 @@ metadata/_edit_group_ = true
 script = ExtResource("5_i5lm3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="juliet/Magnet Zone" unique_id=733194810]
+shape = SubResource("CapsuleShape2D_ruhxn")
+
+[node name="Tower" type="Sprite2D" parent="." unique_id=1525058228]
+position = Vector2(542.75, 295.375)
+scale = Vector2(3.8240738, 2.8964968)
+texture = ExtResource("6_yl5nb")
+
+[node name="Romeo" type="Sprite2D" parent="." unique_id=2001052172]
+modulate = Color(1, 1, 0, 1)
+texture_filter = 1
+material = SubResource("ShaderMaterial_ruhxn")
+instance_shader_parameters/objectColor = Vector4(0, 0, 1, 1)
+position = Vector2(540, 458)
+scale = Vector2(3.875001, 3.9545467)
+texture = ExtResource("3_7wa6u")
+script = ExtResource("5_ruhxn")
+metadata/_edit_group_ = true
+
+[node name="Magnet Zone" type="Area2D" parent="Romeo" unique_id=491551238]
+script = ExtResource("5_i5lm3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Romeo/Magnet Zone" unique_id=763123036]
 shape = SubResource("CapsuleShape2D_ruhxn")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1123501620]

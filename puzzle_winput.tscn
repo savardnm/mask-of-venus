@@ -86,6 +86,11 @@ offset_top = -3.0
 offset_right = 1146.0
 offset_bottom = 643.0
 
+<<<<<<< HEAD
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1877336203]
+stream = ExtResource("11_4m6s5")
+autoplay = true
+=======
 [node name="Curtain" parent="." unique_id=1501850055 instance=ExtResource("11_4m6s5")]
 z_index = 10
 position = Vector2(-18, -119)
@@ -124,6 +129,7 @@ texture = ExtResource("12_5fri5")
 [connection signal="puzzle_spawned" from="PuzzleLoader" to="Curtain" method="open_curtains"]
 [connection signal="puzzle_spawned" from="PuzzleLoader" to="Curtain2" method="open_curtains"]
 [connection signal="puzzle_solved" from="puzzleManager" to="Dialogue" method="give_complete"]
+[connection signal="curtains_opening" from="Curtain" to="Curtain2" method="open_curtains"]
 
 [editable path="Spotlight3"]
 [editable path="Spotlight4"]

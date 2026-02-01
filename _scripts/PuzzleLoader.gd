@@ -18,6 +18,7 @@ func _process(delta: float) -> void:
 # func load_next_puzzle():
 
 
+
 func load_puzzle(puzzle_number:int):
 	var _puzzle = puzzleList[puzzle_number % puzzleList.size()]
 	# Check if Sprite A is assigned before trying to spawn

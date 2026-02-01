@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bbwjgrsgps0um"]
+
+[ext_resource type="Shader" uid="uid://bibkhctwhfcee" path="res://material/Shader_Subtract.gdshader" id="1_3ol0g"]
+[ext_resource type="Texture2D" uid="uid://dn81qrp3gonj" path="res://Sprites/Characters/brutus.png" id="2_0r8ay"]
+[ext_resource type="Script" uid="uid://do16jfth1mfhm" path="res://_scripts/prop.gd" id="3_al442"]
+[ext_resource type="Script" uid="uid://ujgwho7f5i0y" path="res://_scripts/magnet_zone.gd" id="4_xlugu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3ol0g"]
+shader = ExtResource("1_3ol0g")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_far72"]
+radius = 1.6666667
+height = 6.666667
+
+[node name="Subtractive Actor" type="Sprite2D" unique_id=1227397212]
+texture_filter = 1
+material = SubResource("ShaderMaterial_3ol0g")
+instance_shader_parameters/objectColor = Vector4(1, 1, 1, 1)
+texture = ExtResource("2_0r8ay")
+script = ExtResource("3_al442")
+
+[node name="MagnetZone" type="Area2D" parent="." unique_id=515792818]
+scale = Vector2(3, 3)
+script = ExtResource("4_xlugu")
+metadata/_custom_type_script = "uid://ujgwho7f5i0y"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MagnetZone" unique_id=1672671517]
+shape = SubResource("CapsuleShape2D_far72")

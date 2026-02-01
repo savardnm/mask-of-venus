@@ -1,7 +1,10 @@
 extends Node
 
 
-#  for reference var audioManager = get_node("AudioManager")
+#  for reference 
+	# var audioManager = get_tree().get_root().get_node("Root2/AudioManager")
+	# if audioManager:
+	# 	audioManager.play_voice_sequence(["f",'f','f'])
 
 # Dictionary to store loaded sounds for quick access
 var sounds = {

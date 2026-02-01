@@ -10,15 +10,11 @@ var currentLevel = 0
 var puzzleSolved = false
 var timer = 0
 
-@export var audioManager : Node
 
 signal puzzle_solved
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# audioManager = get_tree().get_root().get_node("AudioManager")
-	if audioManager:
-		audioManager.play_voice_sequence(["f",'f','f'])
 	# loader = get_tree().root.get_node(loaderName);
 	if loader:
 		print("has loader")

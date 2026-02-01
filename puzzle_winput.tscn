@@ -111,13 +111,12 @@ script = ExtResource("11_cvf5x")
 puzzleList = Array[PackedScene]([ExtResource("8_kpfah"), ExtResource("8_cvf5x"), ExtResource("12_kpfah"), ExtResource("4_51arp"), ExtResource("5_454rm")])
 dialogue = NodePath("../Dialogue")
 
-[node name="puzzleManager" type="Node" parent="." unique_id=1441602274 node_paths=PackedStringArray("loader", "dialogue", "debugText", "audioManager")]
+[node name="puzzleManager" type="Node" parent="." unique_id=1441602274 node_paths=PackedStringArray("loader", "dialogue", "debugText")]
 script = ExtResource("10_5fri5")
 loaderName = "PuzzleLoader"
 loader = NodePath("../PuzzleLoader")
 dialogue = NodePath("../Dialogue")
 debugText = NodePath("../debugoutputtext")
-audioManager = NodePath("../AudioManager")
 
 [node name="Stage" type="Sprite2D" parent="." unique_id=1160562798]
 texture_filter = 1

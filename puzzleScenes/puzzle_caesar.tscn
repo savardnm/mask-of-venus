@@ -20,10 +20,18 @@ shader = ExtResource("2_dhdah")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3kpna"]
 shader = ExtResource("2_dhdah")
 
-[node name="Root" type="Node2D" unique_id=848156233 node_paths=PackedStringArray("brutus")]
+[node name="CaesarPuzzle" type="Node2D" unique_id=848156233 node_paths=PackedStringArray("brutus")]
 texture_filter = 1
 script = ExtResource("1_dhdah")
 brutus = NodePath("Brutus")
+
+[node name="PuzzleDialogue" type="Node2D" parent="." unique_id=1016861616]
+script = ExtResource("7_ovm2y")
+puzzle_prompt_text = "[color=magneta]The ides of March are come...[/color]
+[i]Ay, Caesar; but not gone. Where is that villanious Brutus?[/i]"
+puzzle_complete_text = "[color=magneta] Et tu, Brute! Then rise, Caesar![/color]
+[i]So Brutus doth bootless kneel after all...[/i]"
+easter_egg_text = "[color=green][i]Where did the monsterous tyrant flee?[/i][/color]"
 
 [node name="wall" type="Sprite2D" parent="." unique_id=1831960351]
 modulate = Color(0.757312, 0.8329293, 0.7729175, 1)
@@ -68,14 +76,6 @@ top_level = true
 light_mask = 0
 visibility_layer = 0
 position = Vector2(537, 271)
-
-[node name="PuzzleDialogue" type="Node2D" parent="." unique_id=1016861616]
-script = ExtResource("7_ovm2y")
-puzzle_prompt_text = "[color=magneta]The ides of March are come...[/color]
-[i]Ay, Caesar; but not gone. Where is that villanious Brutus?[/i]"
-puzzle_complete_text = "[color=magneta] Et tu, Brute! Then rise, Caesar![/color]
-[i]So Brutus doth bootless kneel after all...[/i]"
-easter_egg_text = "[color=green][i]Where did the monsterous tyrant flee?[/i][/color]"
 
 [node name="Caesar" parent="." unique_id=83004834 instance=ExtResource("8_t3db8")]
 material = SubResource("ShaderMaterial_khh3f")
@@ -213,7 +213,7 @@ script = ExtResource("4_t3db8")
 
 [node name="HatCirclet" type="Sprite2D" parent="." unique_id=15200599]
 material = SubResource("ShaderMaterial_3kpna")
-instance_shader_parameters/objectColor = Vector4(0, 1, 0, 1)
+instance_shader_parameters/objectColor = Vector4(0, 0.8, 0, 1)
 position = Vector2(303, 423.00003)
 scale = Vector2(4.8749986, 4.8749986)
 texture = ExtResource("10_t3db8")

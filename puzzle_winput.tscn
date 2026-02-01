@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dqdv1yxq0bqji" path="res://Sprites/Background and Stage/stage.png" id="12_5fri5"]
 [ext_resource type="PackedScene" uid="uid://duaodkki0y8ok" path="res://puzzleScenes/testSpawn.tscn" id="12_kpfah"]
 [ext_resource type="Script" uid="uid://cwlu6id82rn14" path="res://_scripts/AudioManager.gd" id="15_gxjkp"]
+[ext_resource type="PackedScene" uid="uid://dpdgxvyk6xfed" path="res://Objects/sub_spotlight.tscn" id="16_cmf70"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4m6s5"]
 size = Vector2(873.8872, 78.79326)
@@ -67,32 +68,32 @@ position = Vector2(282.49994, 9.999981)
 scale = Vector2(4.550781, 0.36718735)
 texture = ExtResource("7_gxjkp")
 
-[node name="Spotlight3" parent="." unique_id=1141804037 instance=ExtResource("8_cmf70")]
+[node name="Spotlight1" parent="." unique_id=1141804037 instance=ExtResource("8_cmf70")]
 z_index = 100
 position = Vector2(985, 205)
 home_position = [Vector2(205, 339), Vector2(168, 102), Vector2(985, 205)]
 color = Color(1, 0, 1, 1)
 shader = SubResource("ShaderMaterial_1dmfv")
 
-[node name="Color Circle" parent="Spotlight3" index="1" unique_id=81173429]
+[node name="Color Circle" parent="Spotlight1" index="1" unique_id=81173429]
 instance_shader_parameters/objectColor = Vector4(0, 1, 0, 1)
 
-[node name="Spotlight4" parent="." unique_id=1623100901 instance=ExtResource("8_cmf70")]
+[node name="Spotlight0" parent="." unique_id=1623100901 instance=ExtResource("8_cmf70")]
 z_index = 100
 position = Vector2(824, 73)
 home_position = [Vector2(692, 125), Vector2(974, 413), Vector2(148, 442), Vector2(824, 73)]
 color = Color(0, 1, 1, 1)
 
-[node name="Color Circle" parent="Spotlight4" index="1" unique_id=81173429]
+[node name="Color Circle" parent="Spotlight0" index="1" unique_id=81173429]
 instance_shader_parameters/objectColor = Vector4(1, 0, 0, 1)
 
-[node name="Spotlight5" parent="." unique_id=1366813158 instance=ExtResource("8_cmf70")]
+[node name="Spotlight2" parent="." unique_id=1366813158 instance=ExtResource("8_cmf70")]
 z_index = 100
 position = Vector2(72, 87)
 home_position = [Vector2(1009, 365), Vector2(1033, 164), Vector2(434, 182), Vector2(72, 87)]
 color = Color(0, 1, 1, 1)
 
-[node name="Color Circle" parent="Spotlight5" index="1" unique_id=81173429]
+[node name="Color Circle" parent="Spotlight2" index="1" unique_id=81173429]
 instance_shader_parameters/objectColor = Vector4(0, 0, 1, 1)
 
 [node name="Dialogue" parent="." unique_id=1481266671 node_paths=PackedStringArray("audio_manager") instance=ExtResource("10_1dmfv")]
@@ -131,12 +132,27 @@ position = Vector2(581.99994, 566.25)
 scale = Vector2(10.962263, 7.2045445)
 texture = ExtResource("12_5fri5")
 
+[node name="sub_Spotlight7" parent="." unique_id=1970883686 instance=ExtResource("16_cmf70")]
+position = Vector2(-340, 119)
+
+[node name="sub_Spotlight8" parent="." unique_id=1335909808 instance=ExtResource("16_cmf70")]
+position = Vector2(1581, 122)
+
+[node name="Sprite2D" parent="sub_Spotlight8" index="0" unique_id=1225122691]
+instance_shader_parameters/objectColor = Vector4(0, 1, 0, 1)
+
+[node name="sub_Spotlight9" parent="." unique_id=1753845334 instance=ExtResource("16_cmf70")]
+position = Vector2(896, -432)
+
+[node name="Sprite2D" parent="sub_Spotlight9" index="0" unique_id=1225122691]
+instance_shader_parameters/objectColor = Vector4(1, 0, 0, 1)
+
 [connection signal="spotlight_selected" from="Selector" to="AudioManager/SFX Player" method="play_select_spotlight"]
 [connection signal="complete_finished" from="Dialogue" to="Curtain" method="close_curtains"]
 [connection signal="complete_finished" from="Dialogue" to="Curtain2" method="close_curtains"]
-[connection signal="curtains_closed" from="Curtain" to="Spotlight3" method="go_home"]
-[connection signal="curtains_closed" from="Curtain" to="Spotlight4" method="go_home"]
-[connection signal="curtains_closed" from="Curtain" to="Spotlight5" method="go_home"]
+[connection signal="curtains_closed" from="Curtain" to="Spotlight1" method="go_home"]
+[connection signal="curtains_closed" from="Curtain" to="Spotlight0" method="go_home"]
+[connection signal="curtains_closed" from="Curtain" to="Spotlight2" method="go_home"]
 [connection signal="curtains_closed" from="Curtain" to="puzzleManager" method="get_next_puzzle"]
 [connection signal="curtains_closing" from="Curtain" to="AudioManager/SFX Player" method="play_applause"]
 [connection signal="curtains_opened" from="Curtain" to="Dialogue" method="give_prompt"]
@@ -149,6 +165,9 @@ texture = ExtResource("12_5fri5")
 [connection signal="next_step_unlocked" from="puzzleManager" to="AudioManager/SFX Player" method="play_victory"]
 [connection signal="puzzle_solved" from="puzzleManager" to="Dialogue" method="give_complete"]
 
-[editable path="Spotlight3"]
-[editable path="Spotlight4"]
-[editable path="Spotlight5"]
+[editable path="Spotlight1"]
+[editable path="Spotlight0"]
+[editable path="Spotlight2"]
+[editable path="sub_Spotlight7"]
+[editable path="sub_Spotlight8"]
+[editable path="sub_Spotlight9"]

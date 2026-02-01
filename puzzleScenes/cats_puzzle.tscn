@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bpm36lq41ek3t"]
+
+[ext_resource type="PackedScene" uid="uid://cjnydtfe8556u" path="res://Objects/Actor.tscn" id="1_tdyia"]
+[ext_resource type="Texture2D" uid="uid://pmapci8010h2" path="res://Sprites/Characters/cat.png" id="2_31rk3"]
+
+[node name="Node2D" type="Node2D" unique_id=1658250853]
+
+[node name="Griz" parent="." unique_id=83004834 instance=ExtResource("1_tdyia")]
+instance_shader_parameters/objectColor = Vector4(1, 0, 0, 1)
+position = Vector2(411, 445)
+texture = ExtResource("2_31rk3")
+
+[node name="Jellicle" parent="." unique_id=943624406 instance=ExtResource("1_tdyia")]
+instance_shader_parameters/objectColor = Vector4(0, 0.8, 0.2, 1)
+position = Vector2(623, 447)
+texture = ExtResource("2_31rk3")
+
+[node name="Actor3" parent="." unique_id=22775675 instance=ExtResource("1_tdyia")]
+instance_shader_parameters/objectColor = Vector4(0, 0.1, 0.9, 1)
+position = Vector2(675, 445)
+texture = ExtResource("2_31rk3")
+
+[node name="Actor4" parent="." unique_id=808699525 instance=ExtResource("1_tdyia")]
+instance_shader_parameters/objectColor = Vector4(0, 1, 1, 1)
+position = Vector2(583, 446)
+texture = ExtResource("2_31rk3")
+
+[node name="Moon" parent="." unique_id=1434011525 instance=ExtResource("1_tdyia")]

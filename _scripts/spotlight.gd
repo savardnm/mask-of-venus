@@ -19,10 +19,10 @@ var volume_base = -10
 
 var size = 100
 
-@export var color = Color(1,1,1,0.5):
-	set(value):
-		color = value
-		set_spotlight_color(value)
+# @export var color = Color(1,1,1,0.5):
+	# set(value):
+	# 	color = value
+	# 	set_spotlight_color(value)
 
 @export var shader: ShaderMaterial
 
@@ -36,10 +36,10 @@ var outline = false:
 		outline = value
 		queue_redraw()
 
-func set_spotlight_color(new_color: Color):
-	var sprite: Sprite2D = find_child("Color Circle")
-	print("color circle?: ", sprite, color)
-	sprite.material.set_shader_parameter("instance_shader_parameters/objectColor", Vector4(new_color.r, new_color.g, new_color.b, new_color.a))
+# func set_spotlight_color(new_color: Color):
+# 	var sprite: Sprite2D = find_child("Color Circle")
+# 	print("color circle?: ", sprite, color)
+	# sprite.material.set_shader_parameter("instance_shader_parameters/objectColor", Vector4(new_color.r, new_color.g, new_color.b, new_color.a))
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

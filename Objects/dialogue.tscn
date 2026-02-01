@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://hepwmc3vxi6r"]
+
+[ext_resource type="Script" uid="uid://btjfgulxagjg8" path="res://_scripts/dialogue.gd" id="1_po5ap"]
+[ext_resource type="Texture2D" uid="uid://dqdv1yxq0bqji" path="res://Sprites/Background and Stage/stage.png" id="2_vhpwf"]
+
+[node name="Dialogue" type="Control" unique_id=1481266671]
+layout_mode = 3
+anchor_left = 0.48800004
+anchor_top = 0.46500003
+anchor_right = 0.48800004
+anchor_bottom = 0.46500003
+offset_left = -562.176
+offset_top = -301.32
+offset_right = 588.824
+offset_bottom = 344.68
+script = ExtResource("1_po5ap")
+puzzle_prompt_text = "O Romeo, Romeo! wherefore art thou Romeo?
+Deny thy father and refuse thy name...\""
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1169208005]
+
+[node name="Text Display" type="RichTextLabel" parent="CanvasLayer" unique_id=194396643]
+offset_left = 47.0
+offset_top = 554.0
+offset_right = 1102.0
+offset_bottom = 622.0
+bbcode_enabled = true
+text = "[color=black]AAAAAAAAAA[/color]"
+scroll_active = false
+scroll_following_visible_characters = true
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 7
+visible_ratio = 0.7
+
+[node name="Stage" type="Sprite2D" parent="." unique_id=478621380]
+z_index = 5
+texture_filter = 1
+position = Vector2(575.24994, 564)
+scale = Vector2(10.750001, 7.5454555)
+texture = ExtResource("2_vhpwf")

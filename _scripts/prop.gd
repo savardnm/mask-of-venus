@@ -2,7 +2,6 @@ extends Node
 
 
 @onready var viewport : Viewport  
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	viewport = get_tree().root 

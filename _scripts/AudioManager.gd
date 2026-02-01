@@ -14,21 +14,7 @@ var sounds = {
 	"juliet2": preload("res://Audio/Voices/Voice_6.wav"),
 	"bear": preload("res://Audio/Voices/Voice_5.wav")
 }
-var voices = [
-	preload("res://Audio/Voices/Voice_1.wav"),
-	preload("res://Audio/Voices/Voice_2.wav"),
-	preload("res://Audio/Voices/Voice_3.wav"),
-	preload("res://Audio/Voices/Voice_4.wav"),
-	preload("res://Audio/Voices/Voice_5.wav"),
-]
 
-var single_voices = [
-	preload("res://Audio/Voices/Voice_1_single.wav"),
-	preload("res://Audio/Voices/Voice_2_single.wav"),
-	preload("res://Audio/Voices/Voice_3_single.wav"),
-	preload("res://Audio/Voices/Voice_4_single.wav"),
-	preload("res://Audio/Voices/Voice_5_single.wav"),
-]
 
 var sfxSequence = [ 
 ]
@@ -36,9 +22,16 @@ var sfxSequence = [
 @export var musicPlayer : Node;
 @export var sfxPlayer : Node;
 
+
+
+
+
 func _ready():
-	play_voice_sequence(["m",'f','n'])
-	# play_music("drumroll",true,0.1)
+	load_sounds_from_dir("res://Audio/Music/")
+	load_sounds_from_dir("res://Audio/SFX/")
+	# play_voice_sequence(["f",'f','f'])
+	# play_music("Theme_Base_1",false)
+	# play_sfx("Applause");
 
 func play_voice_sequence(order):
 	sfxSequence.clear()
@@ -71,8 +64,7 @@ func play_voice_sequence(order):
 	_continue_sfx_sequence(sfxPlayer)
 	sfxPlayer.play()
 
-func play_sfx(sound_name: String, volume_db: float = 0.0):
-
+func play_sfx(sound_name: String, volume_db: float = 1.0):
 
 	if sounds.has(sound_name) and sfxPlayer:
 		var asp = sfxPlayer
@@ -82,7 +74,7 @@ func play_sfx(sound_name: String, volume_db: float = 0.0):
 		asp.play()
 
 
-func play_music(music_path: String, shouldLoop:bool,volume_db: float = 0.0):
+func play_music(music_path: String, shouldLoop:bool,volume_db: float = 1.0):
 	if sounds.has(music_path) and musicPlayer:
 		var music_node = musicPlayer
 		music_node.stream = sounds[music_path]
@@ -92,12 +84,13 @@ func play_music(music_path: String, shouldLoop:bool,volume_db: float = 0.0):
 		play_audio(music_node,sounds[music_path],1)
 		# music_node.play()
 
-func play_audio(audioPlayer: Node, soundFile:AudioStream,volume_db: float = 0.0):
+func play_audio(audioPlayer: Node, soundFile:AudioStream,volume_db: float = 1.0):
 	if soundFile and audioPlayer:
 
 		audioPlayer.stream = soundFile
 		audioPlayer.volume_db = volume_db
 		audioPlayer.play()
+
 
 func _on_loop_sound(player):
 	player.stream_paused = false
@@ -112,3 +105,25 @@ func _continue_sfx_sequence(player):
 	player.stream = sfxSequence[0]
 	sfxSequence.remove_at(0)
 	player.play()
+
+
+
+
+
+func load_sounds_from_dir(path: String):
+	var dir = DirAccess.open(path)
+	
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		
+		while file_name != "":
+			if !dir.current_is_dir():
+				if file_name.ends_with(".wav") or file_name.ends_with(".ogg") or file_name.ends_with(".mp3"):
+					var sound_key = file_name.get_basename() # "sound.wav" becomes "sound"
+					var full_path = path + file_name
+					sounds[sound_key] = load(full_path)
+					print("Loaded sound: ", sound_key)
+			
+			file_name = dir.get_next()
+		dir.list_dir_end()

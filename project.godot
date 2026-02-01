@@ -15,19 +15,8 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Mask of Venus"
-<<<<<<< HEAD
 run/main_scene="uid://c2sui3g7o8nb8"
 config/features=PackedStringArray("4.6", "Forward Plus")
-=======
-run/main_scene="uid://drioqy28s1o6k"
-<<<<<<< HEAD
-config/features=PackedStringArray("4.6", "Forward Plus")
-=======
-config/features=PackedStringArray("4.5", "Forward Plus")
->>>>>>> 6c97c7706b5d2b6abf2cf00d865840ba3f477d76
->>>>>>> 21f713759ec64ee8efd50957404871e3ed1f638d
-config/icon="res://icon.svg"
-<<<<<<<HEADrun/main_scene="uid://c2sui3g7o8nb8"
 
 [display]
 

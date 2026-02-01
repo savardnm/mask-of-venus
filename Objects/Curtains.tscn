@@ -1,0 +1,144 @@
+[gd_scene format=3 uid="uid://dxbe0q2p8ygu3"]
+
+[ext_resource type="Script" uid="uid://3kgyyjc5byc4" path="res://CurtainController.gd" id="1_fh2xf"]
+[ext_resource type="Texture2D" uid="uid://bdkbmok3uyvcj" path="res://Sprites/Background and Stage/curtains.png" id="2_fq6td"]
+
+[sub_resource type="Animation" id="Animation_snghc"]
+resource_name = "Curtain Push"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.53333336, 1.2333333, 1.3666667, 1.5),
+"transitions": PackedFloat32Array(2, 1, 1, 1, 2.0705302),
+"update": 0,
+"values": [0.0, 0.35779249665883756, -0.06981317007977318, 0.055850536063818346, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.33333334, 1.0666667, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-550, 0), Vector2(-500, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.53333336, 1.5),
+"transitions": PackedFloat32Array(2, 1, 2.7),
+"update": 0,
+"values": [Vector2(13.911442, 9.628632), Vector2(13.911, 10.304), Vector2(13.911442, 9.628632)]
+}
+
+[sub_resource type="Animation" id="Animation_qnbks"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(13.911442, 9.628632)]
+}
+
+[sub_resource type="Animation" id="Animation_1mvx7"]
+resource_name = "curtain_pull"
+length = 1.591
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.5, 1.2333333, 1.5666667, 3.6333334),
+"transitions": PackedFloat32Array(2.0705302, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.4363323129985824, -0.6056292504420324, 0.18151424220741014, 0.0, -0.7714355293814937]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.33333334, 0.8666667, 1.5666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-500, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 1.2333333, 1.5666667),
+"transitions": PackedFloat32Array(2.7, 1, 1, 1),
+"update": 0,
+"values": [Vector2(13.911442, 9.628632), Vector2(13.911, 10.949), Vector2(13.911, 9.85), Vector2(13.911442, 9.628632)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1j8j3"]
+_data = {
+&"Curtain Push": SubResource("Animation_snghc"),
+&"RESET": SubResource("Animation_qnbks"),
+&"curtain_pull": SubResource("Animation_1mvx7")
+}
+
+[node name="Curtain" type="Node2D" unique_id=1501850055]
+script = ExtResource("1_fh2xf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1067979782]
+root_node = NodePath("../Polygon2D")
+libraries/ = SubResource("AnimationLibrary_1j8j3")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=710687635]
+texture_filter = 1
+scale = Vector2(13.911442, 9.628632)
+texture = ExtResource("2_fq6td")
+polygon = PackedVector2Array(-0.54610443, 67.28105, 39.601387, 67.28105, 41.002426, 1.798413, 1.349289, 1.3319056)
+uv = PackedVector2Array(-0.54610443, 67.28105, 39.601387, 67.28105, 41.002426, 1.798413, 1.349289, 1.3319056)

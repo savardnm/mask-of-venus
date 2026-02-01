@@ -7,13 +7,13 @@ class_name SceneDialogue
 @export_multiline var easter_egg_text: String
 @onready var text_display: RichTextLabel = find_child("Text Display")
 
-var text_read_speed = 10
+var text_read_speed = 12
 var read_progress = 0.0
 
-var phase = 0
+var phase = -1
 
 func _ready():
-	give_prompt()
+	# give_prompt()
 	pass
 
 func _process(delta: float):
@@ -41,7 +41,11 @@ func give_prompt():
 	
 func give_complete():
 	read_text(puzzle_complete_text)
-	phase = 1
+	phase = 2
+
+func give_easter_egg():
+	read_text(easter_egg_text)
+	phase = 4
 
 
 func puzzle_complete():
@@ -57,3 +61,14 @@ func read_text(string: String):
 signal prompt_finished
 signal complete_finished
 signal easter_egg_finished
+
+
+func _on_node_2d_accept_pressed():
+	match phase:
+		-1:
+			give_prompt()
+		1:
+			give_complete()
+		3:
+			give_easter_egg()
+			

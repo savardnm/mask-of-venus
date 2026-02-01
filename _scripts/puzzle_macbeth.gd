@@ -10,4 +10,8 @@ func check_if_solved():
 	if waiting:
 		return false
 
-	return (spot.get_current_color() == lady_macbeth.get_current_color()) and (spot.get_current_color != background.get_current_color)
+	if (spot.get_current_color() == lady_macbeth.get_current_color()) and (spot.get_current_color != background.get_current_color):
+		print("spot removed!")
+		return true
+
+	return false

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://hk27ngxj2a1f" path="res://_scripts/puzzle.gd" id="1_i5lm3"]
 [ext_resource type="Texture2D" uid="uid://tv183057h58t" path="res://Sprites/Characters/romeo.png" id="3_7wa6u"]
-[ext_resource type="Shader" path="res://material/basic.gdshader" id="4_7wa6u"]
+[ext_resource type="Shader" uid="uid://bea5lkum3nd0o" path="res://material/basic.gdshader" id="4_7wa6u"]
 [ext_resource type="Texture2D" uid="uid://b2bfieda8qk2j" path="res://Sprites/Characters/juliet.png" id="5_7wa6u"]
 [ext_resource type="Script" uid="uid://ujgwho7f5i0y" path="res://_scripts/magnet_zone.gd" id="5_i5lm3"]
 [ext_resource type="Script" uid="uid://do16jfth1mfhm" path="res://_scripts/prop.gd" id="5_ruhxn"]
@@ -19,7 +19,7 @@ height = 35.506104
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ruhxn"]
 shader = ExtResource("4_7wa6u")
 
-[node name="Root" type="Node2D" unique_id=848156233 node_paths=PackedStringArray("goalObject", "otherObject")]
+[node name="RomeoPuzzle" type="Node2D" unique_id=848156233 node_paths=PackedStringArray("goalObject", "otherObject")]
 texture_filter = 1
 script = ExtResource("1_i5lm3")
 goalObject = NodePath("Romeo")

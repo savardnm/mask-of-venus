@@ -20,11 +20,14 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func pause_active_puzzle():
+	print("pausing: ", activePuzzle.name)
 	activePuzzle.waiting = true
 func resume_active_puzzle():
+	print("resuming: ", activePuzzle.name)
 	activePuzzle.waiting = false
 
 func get_next_puzzle():
+	print("beginning to get next puzzle!")
 
 	puzzleSolved = false
 	currentLevel = currentLevel + 1
@@ -34,6 +37,7 @@ func get_next_puzzle():
 	activePuzzle = loader.load_puzzle(currentLevel);
 
 	if activePuzzle == null:
+		print("This SHOULDN't appear!!!-------------------")
 		currentLevel = 0
 		activePuzzle = loader.load_puzzle(currentLevel);
 

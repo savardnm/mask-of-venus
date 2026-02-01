@@ -21,7 +21,7 @@ size = Vector2(873.8872, 78.79326)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1dmfv"]
 shader = ExtResource("3_4m6s5")
 
-[node name="Root" type="Node2D" unique_id=848156233]
+[node name="PuzzleWinput Root" type="Node2D" unique_id=848156233]
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1123501620]
 position = Vector2(778, 309)
@@ -89,20 +89,18 @@ offset_bottom = 643.0
 autoplay = true
 
 [node name="Curtain" parent="." unique_id=1501850055 instance=ExtResource("11_4m6s5")]
-visible = false
 z_index = 10
 position = Vector2(-18, -119)
 scale = Vector2(1.1, 1)
 
 [node name="Curtain2" parent="." unique_id=1708424299 instance=ExtResource("11_4m6s5")]
-visible = false
 z_index = 11
 position = Vector2(1192, -119)
 scale = Vector2(-1.2, 1)
 
 [node name="PuzzleLoader" type="Node" parent="." unique_id=723780575 node_paths=PackedStringArray("dialogue")]
 script = ExtResource("11_cvf5x")
-puzzleList = Array[PackedScene]([ExtResource("8_kpfah"), ExtResource("8_cvf5x"), ExtResource("12_kpfah"), ExtResource("4_51arp"), ExtResource("5_454rm")])
+puzzleList = Array[PackedScene]([ExtResource("12_kpfah"), ExtResource("4_51arp"), ExtResource("8_kpfah"), ExtResource("8_cvf5x"), ExtResource("5_454rm")])
 dialogue = NodePath("../Dialogue")
 
 [node name="puzzleManager" type="Node" parent="." unique_id=1441602274 node_paths=PackedStringArray("loader", "dialogue", "debugText")]
@@ -119,14 +117,14 @@ scale = Vector2(10.962263, 7.2045445)
 texture = ExtResource("12_5fri5")
 
 [connection signal="complete_finished" from="Dialogue" to="Curtain" method="close_curtains"]
+[connection signal="complete_finished" from="Dialogue" to="Curtain2" method="close_curtains"]
 [connection signal="curtains_closed" from="Curtain" to="Spotlight3" method="go_home"]
 [connection signal="curtains_closed" from="Curtain" to="Spotlight4" method="go_home"]
 [connection signal="curtains_closed" from="Curtain" to="Spotlight5" method="go_home"]
-[connection signal="curtains_closing" from="Curtain" to="Curtain2" method="close_curtains"]
+[connection signal="curtains_closed" from="Curtain" to="puzzleManager" method="get_next_puzzle"]
 [connection signal="curtains_opened" from="Curtain" to="Dialogue" method="give_prompt"]
 [connection signal="curtains_opened" from="Curtain" to="puzzleManager" method="resume_active_puzzle"]
 [connection signal="curtains_opening" from="Curtain" to="Curtain2" method="open_curtains"]
-[connection signal="curtains_closed" from="Curtain2" to="puzzleManager" method="_on_curtain_2_curtains_closed"]
 [connection signal="puzzle_spawned" from="PuzzleLoader" to="Curtain" method="open_curtains"]
 [connection signal="puzzle_spawned" from="PuzzleLoader" to="Curtain2" method="open_curtains"]
 [connection signal="puzzle_solved" from="puzzleManager" to="Dialogue" method="give_complete"]

@@ -16,17 +16,25 @@ func _ready():
 	print("anim: ", animation_player)
 
 func _process(delta: float):
+	if not curtains_done():
+		transitioning = true
 	if transitioning:
-		if not animation_player.is_playing():
+		print(name, animation_player.current_animation_position / animation_player.current_animation_length)
+		if curtains_done():
 			print("done animating!", name)
 			if open:
 				curtains_closed.emit()
+				print("closed, emitted")
 				transitioning = false
 				open = false
 			else:
 				curtains_opened.emit()
+				print("opened, emitted")
 				transitioning = false
 				open = true
+
+func curtains_done():
+	return animation_player.current_animation_position / animation_player.current_animation_length > 0.9
 
 func close_curtains():
 	print("open?")

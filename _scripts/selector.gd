@@ -5,6 +5,8 @@ var mouse_position = Vector2.ZERO
 var selected_spotlight
 var offset = Vector2.ZERO
 
+signal spotlight_selected
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -29,6 +31,7 @@ func _process(delta: float):
 
 	if Input.is_action_just_pressed("select"):
 		offset = selected_spotlight.global_position - global_position
+		spotlight_selected.emit()
 
 	selected_spotlight.claimed = false
 	if Input.is_action_pressed("select"):

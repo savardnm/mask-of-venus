@@ -1,8 +1,9 @@
 extends Node
+class_name AudioManager
 
 
 #  for reference 
-	# var audioManager = get_tree().get_root().get_node("Root2/AudioManager")
+	# var audioManager = get_tree().get_root().find_child("AudioManager")
 	# if audioManager:
 	# 	audioManager.play_voice_sequence(["f",'f','f'])
 

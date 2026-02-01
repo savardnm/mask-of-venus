@@ -29,7 +29,6 @@ func resume_active_puzzle():
 	activePuzzle.waiting = false
 
 func get_next_puzzle():
-	print("beginning to get next puzzle!")
 
 	puzzleSolved = false
 	currentLevel = currentLevel + 1
@@ -39,13 +38,11 @@ func get_next_puzzle():
 	activePuzzle = loader.load_puzzle(currentLevel);
 
 	if activePuzzle == null:
-		print("This SHOULDN't appear!!!-------------------")
 		currentLevel = 0
 		activePuzzle = loader.load_puzzle(currentLevel);
 
 	
 	pause_active_puzzle()
-	print("pausing active puzzle: ", activePuzzle)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

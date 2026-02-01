@@ -20,7 +20,7 @@ shader = ExtResource("2_dhdah")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3kpna"]
 shader = ExtResource("2_dhdah")
 
-[node name="Root" type="Node2D" unique_id=848156233 node_paths=PackedStringArray("brutus")]
+[node name="CaesarPuzzle" type="Node2D" unique_id=848156233 node_paths=PackedStringArray("brutus")]
 texture_filter = 1
 script = ExtResource("1_dhdah")
 brutus = NodePath("Brutus")

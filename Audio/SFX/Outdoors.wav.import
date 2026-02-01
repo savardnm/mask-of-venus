@@ -2,7 +2,11 @@
 
 importer="wav"
 type="AudioStreamWAV"
+<<<<<<< HEAD
 uid="uid://c0pmslhn0c62a"
+=======
+uid="uid://bao3msufeioxb"
+>>>>>>> e470aa32c43f9de4880874119204b6b68a20c547
 path="res://.godot/imported/Outdoors.wav-11ea0ff1636272765c351f4cfbd3bd2c.sample"
 
 [deps]

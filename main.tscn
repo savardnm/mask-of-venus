@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://drioqy28s1o6k"]
+[gd_scene load_steps=13 format=3 uid="uid://drioqy28s1o6k"]
 
 [ext_resource type="Texture2D" uid="uid://csvjh0r3n4yni" path="res://Sprites/Basic Shapes/Circle.png" id="3_1bvp3"]
 [ext_resource type="Shader" uid="uid://bibkhctwhfcee" path="res://material/Shader_Subtract.gdshader" id="3_7mycd"]
@@ -21,59 +21,59 @@ radius = 17.029387
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kek77"]
 shader = ExtResource("4_7mycd")
 
-[node name="Root" type="Node2D" unique_id=848156233]
+[node name="Root" type="Node2D"]
 
-[node name="Circle3" type="Sprite2D" parent="." unique_id=1431873370]
+[node name="Circle3" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_5vw27")
 instance_shader_parameters/objectColor = Vector4(1, 1, 0, 1)
 position = Vector2(428, 187)
 texture = ExtResource("3_1bvp3")
 script = ExtResource("5_272bh")
 
-[node name="Square" type="Sprite2D" parent="." unique_id=1838755886]
+[node name="Square" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_272bh")
 instance_shader_parameters/objectColor = Vector4(1, 0, 0, 1)
 position = Vector2(434, 358)
 texture = ExtResource("4_lquwl")
 
-[node name="Node2D" type="Node2D" parent="." unique_id=1123501620]
+[node name="Node2D" type="Node2D" parent="."]
 position = Vector2(778, 309)
 
-[node name="Selector" type="Area2D" parent="." unique_id=224449348]
+[node name="Selector" type="Area2D" parent="."]
 position = Vector2(441, 80)
 script = ExtResource("9_4c57u")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Selector" unique_id=1079103478]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Selector"]
 shape = SubResource("CircleShape2D_dg77c")
 
-[node name="Spotlight" parent="." unique_id=1141804037 instance=ExtResource("8_kek77")]
+[node name="Spotlight" parent="." instance=ExtResource("8_kek77")]
 position = Vector2(786, 325)
 size = 100
 color = Color(1, 0, 1, 1)
 shader = SubResource("ShaderMaterial_kek77")
 
-[node name="Color Circle" parent="Spotlight" index="1" unique_id=81173429]
+[node name="Color Circle" parent="Spotlight" index="1"]
 instance_shader_parameters/objectColor = Vector4(0, 1, 0, 1)
 
-[node name="Spotlight2" parent="." unique_id=899625294 instance=ExtResource("8_kek77")]
+[node name="Spotlight2" parent="." instance=ExtResource("8_kek77")]
 position = Vector2(937, 319)
 size = 100
 color = Color(0, 1, 1, 1)
 
-[node name="Color Circle" parent="Spotlight2" index="1" unique_id=81173429]
+[node name="Color Circle" parent="Spotlight2" index="1"]
 instance_shader_parameters/objectColor = Vector4(1, 0, 0, 1)
 
-[node name="Spotlight3" parent="." unique_id=258960671 instance=ExtResource("8_kek77")]
+[node name="Spotlight3" parent="." instance=ExtResource("8_kek77")]
 position = Vector2(873.00006, 201.99998)
 scale = Vector2(1.61, 1.61)
 size = 100
 color = Color(0, 1, 1, 1)
 
-[node name="Color Circle" parent="Spotlight3" index="1" unique_id=81173429]
+[node name="Color Circle" parent="Spotlight3" index="1"]
 instance_shader_parameters/objectColor = Vector4(0, 0, 1, 1)
 
-[node name="Dialogue" parent="." unique_id=1481266671 instance=ExtResource("8_5vw27")]
+[node name="Dialogue" parent="." instance=ExtResource("8_5vw27")]
 
 [editable path="Spotlight"]
 [editable path="Spotlight2"]

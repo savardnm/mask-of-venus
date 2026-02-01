@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://do16jfth1mfhm" path="res://_scripts/prop.gd" id="5_ruhxn"]
 [ext_resource type="Texture2D" uid="uid://8crbck05tqyd" path="res://Sprites/Background and Stage/tower.png" id="6_yl5nb"]
 [ext_resource type="Script" uid="uid://bwcyh1ntw82jw" path="res://_scripts/puzzle_dialogue.gd" id="8_yl5nb"]
+[ext_resource type="Texture2D" uid="uid://cs1v5x8va363q" path="res://Sprites/Characters/hat_circlet.png" id="9_esof6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i5lm3"]
 shader = ExtResource("4_7wa6u")
@@ -75,3 +76,10 @@ Deny thy father and refuse thy name...\"[/color]
 puzzle_complete_text = "[color=magenta]Thou art thyself, and a Montague besides![/color]
 [i]Ah, there's a happier ending![/i]"
 easter_egg_text = "[color=magenta][i]ehem...[/i] O Romeo, Romeo... Where art thou Romeo?[/color]"
+puzzle_prompt_speakers = Array[String](["f", "f", "f", "n", "n"])
+puzzle_complete_speakers = Array[String](["f", "n"])
+
+[node name="HatCirclet" type="Sprite2D" parent="." unique_id=113457926]
+position = Vector2(543.00006, 199.00002)
+scale = Vector2(4.08, 4.08)
+texture = ExtResource("9_esof6")

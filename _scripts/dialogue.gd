@@ -1,13 +1,18 @@
 extends Control
 class_name SceneDialogue
 
+@export var audio_manager: AudioManager
 @export var autoread = false
 @export_multiline var puzzle_prompt_text: String
 @export_multiline var puzzle_complete_text: String
 @export_multiline var easter_egg_text: String
 @onready var text_display: RichTextLabel = find_child("Text Display")
 
-var text_read_speed = 12
+var puzzle_prompt_speakers = ""
+var puzzle_complete_speakers = ""
+
+
+var text_read_speed = 13
 var read_progress = 0.0
 
 var phase = -1
@@ -38,6 +43,7 @@ func _process(delta: float):
 func give_prompt():
 	if phase == 0:
 		return
+	audio_manager.play_voice_sequence(puzzle_prompt_speakers)
 	read_text(puzzle_prompt_text)
 	phase = 0
 	
@@ -45,6 +51,7 @@ func give_complete():
 	if phase == 2:
 		return
 	read_text(puzzle_complete_text)
+	audio_manager.play_voice_sequence(puzzle_complete_speakers)
 	phase = 2
 
 func give_easter_egg():

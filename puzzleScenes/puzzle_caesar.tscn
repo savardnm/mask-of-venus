@@ -29,9 +29,11 @@ brutus = NodePath("Brutus")
 script = ExtResource("7_ovm2y")
 puzzle_prompt_text = "[color=magenta]The ides of March are come...[/color]
 [i]Ay, Caesar; but not gone. Where is that villanious Brutus?[/i]"
-puzzle_complete_text = "[color=magneta] Et tu, Brute! Then rise, Caesar![/color]
+puzzle_complete_text = "[color=magenta] Et tu, Brute! Then rise, Caesar![/color]
 [i]So Brutus doth bootless kneel after all...[/i]"
 easter_egg_text = "[color=green][i]Where did the monsterous tyrant flee?[/i][/color]"
+puzzle_prompt_speakers = Array[String](["m", "n"])
+puzzle_complete_speakers = Array[String](["m", "n"])
 
 [node name="wall" type="Sprite2D" parent="." unique_id=1831960351]
 modulate = Color(0.757312, 0.8329293, 0.7729175, 1)

@@ -22,3 +22,6 @@ func transfer_dialogue(puzzle_dialogue: PuzzleDialogue, scene_dialogue: SceneDia
 	scene_dialogue.puzzle_prompt_text = puzzle_dialogue.puzzle_prompt_text
 	scene_dialogue.puzzle_complete_text = puzzle_dialogue.puzzle_complete_text
 	scene_dialogue.easter_egg_text = puzzle_dialogue.easter_egg_text
+
+	scene_dialogue.puzzle_prompt_speakers = puzzle_dialogue.puzzle_prompt_speakers
+	scene_dialogue.puzzle_complete_speakers = puzzle_dialogue.puzzle_complete_speakers

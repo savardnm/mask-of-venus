@@ -42,10 +42,15 @@ position = Vector2(778, 309)
 position = Vector2(440, 80)
 
 [node name="debugoutputtext" type="RichTextLabel" parent="." unique_id=1498843965]
-offset_right = 40.0
-offset_bottom = 40.0
+z_index = 1000
+offset_left = 963.0
+offset_top = 567.0
+offset_right = 1003.0
+offset_bottom = 607.0
+bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
+vertical_alignment = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=683850066]
 position = Vector2(295, 587)

@@ -50,6 +50,7 @@ func _process(delta: float):
 	if puzzleSolved == true:
 		if Input.is_action_just_pressed("ui_accept") and activePuzzle:
 			puzzle_solved.emit()
+			debugText.text = ""
 		return
 	timer = timer + delta
 	# we dont need to check every frame
@@ -57,10 +58,10 @@ func _process(delta: float):
 		timer = 0
 
 		# if Input.is_action_just_pressed("ui_accept") and activePuzzle:
-		if debugText:
 			# debugText.text = str(activePuzzle.check_if_solved())
-			debugText.text = "[tornado]→[Space]Continue...[/tornado]"
 		if activePuzzle.check_if_solved():
+			if debugText:
+				debugText.text = "[tornado]→ (Space) Continue...[/tornado]"
 			puzzleSolved = true
 			next_step_unlocked.emit()
 			

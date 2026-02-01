@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://djcs7qb2a4v3k" path="res://_scripts/puzzle_macbeth.gd" id="1_eawtu"]
 [ext_resource type="Texture2D" uid="uid://dekens6qjnt02" path="res://Sprites/Basic Shapes/Square.png" id="2_wjskc"]
+[ext_resource type="Shader" uid="uid://bea5lkum3nd0o" path="res://material/basic.gdshader" id="3_qkut7"]
 [ext_resource type="Script" uid="uid://do16jfth1mfhm" path="res://_scripts/prop.gd" id="3_x3711"]
 [ext_resource type="PackedScene" uid="uid://cjnydtfe8556u" path="res://Objects/Actor.tscn" id="4_qkut7"]
 [ext_resource type="Texture2D" uid="uid://c0j8sr8r8xeg" path="res://Sprites/Characters/lady_macbeth.png" id="5_88cxm"]
@@ -10,7 +11,14 @@
 [ext_resource type="Texture2D" uid="uid://clxcnh52q3b8j" path="res://Sprites/Props/well.png" id="8_nlsaw"]
 [ext_resource type="Script" uid="uid://bwcyh1ntw82jw" path="res://_scripts/puzzle_dialogue.gd" id="9_x3711"]
 
-[node name="Node2D" type="Node2D" unique_id=1024367458 node_paths=PackedStringArray("lady_macbeth", "spot", "background")]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_khh3f"]
+shader = ExtResource("3_qkut7")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_far72"]
+radius = 1.6666667
+height = 6.666667
+
+[node name="MacbethPuzzle" type="Node2D" unique_id=1024367458 node_paths=PackedStringArray("lady_macbeth", "spot", "background")]
 texture_filter = 1
 script = ExtResource("1_eawtu")
 lady_macbeth = NodePath("Lady Macbeth")
@@ -18,6 +26,7 @@ spot = NodePath("Lady Macbeth/Spot")
 background = NodePath("Background")
 
 [node name="Background" parent="." unique_id=83004834 instance=ExtResource("4_qkut7")]
+material = SubResource("ShaderMaterial_khh3f")
 instance_shader_parameters/objectColor = Vector4(0.2, 0.1, 0.1, 1)
 position = Vector2(570, 384)
 scale = Vector2(4.4375, 0.8476562)
@@ -34,6 +43,7 @@ texture = ExtResource("2_wjskc")
 script = ExtResource("3_x3711")
 
 [node name="Lady Macbeth" parent="." unique_id=1561441966 instance=ExtResource("4_qkut7")]
+material = SubResource("ShaderMaterial_khh3f")
 instance_shader_parameters/objectColor = Vector4(0, 1, 1, 1)
 position = Vector2(638, 378.99997)
 scale = Vector2(7.0624976, 7.0624976)
@@ -46,10 +56,14 @@ scale = Vector2(0.6061948, 0.5796462)
 texture = ExtResource("7_pbo40")
 
 [node name="Spot" parent="Lady Macbeth" unique_id=1670985089 instance=ExtResource("4_qkut7")]
+material = SubResource("ShaderMaterial_khh3f")
 instance_shader_parameters/objectColor = Vector4(1, 0, 1, 1)
 position = Vector2(-5.805313, 0.99115753)
 scale = Vector2(0.013689158, 0.014275836)
 texture = ExtResource("6_rdosm")
+
+[node name="CollisionShape2D" parent="Lady Macbeth/Spot/MagnetZone" parent_id_path=PackedInt32Array(1670985089, 515792818) index="0" unique_id=1672671517]
+shape = SubResource("CapsuleShape2D_far72")
 
 [node name="Well2" parent="." unique_id=1374420684 instance=ExtResource("4_qkut7")]
 material = null

@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://b4fdt7y380woq" path="res://_scripts/PuzzleLoader.gd" id="11_cvf5x"]
 [ext_resource type="Texture2D" uid="uid://dqdv1yxq0bqji" path="res://Sprites/Background and Stage/stage.png" id="12_5fri5"]
 [ext_resource type="PackedScene" uid="uid://duaodkki0y8ok" path="res://puzzleScenes/testSpawn.tscn" id="12_kpfah"]
+[ext_resource type="Script" uid="uid://cwlu6id82rn14" path="res://_scripts/AudioManager.gd" id="15_gxjkp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4m6s5"]
 size = Vector2(873.8872, 78.79326)
@@ -21,7 +22,15 @@ size = Vector2(873.8872, 78.79326)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1dmfv"]
 shader = ExtResource("3_4m6s5")
 
-[node name="Root" type="Node2D" unique_id=848156233]
+[node name="Root2" type="Node2D" unique_id=848156233]
+
+[node name="AudioManager" type="AudioStreamPlayer" parent="." unique_id=1397479599 node_paths=PackedStringArray("musicPlayer", "sfxPlayer")]
+autoplay = true
+script = ExtResource("15_gxjkp")
+musicPlayer = NodePath(".")
+sfxPlayer = NodePath("sfxAudioStream")
+
+[node name="sfxAudioStream" type="AudioStreamPlayer" parent="AudioManager" unique_id=1177087320]
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1123501620]
 position = Vector2(778, 309)
@@ -85,9 +94,6 @@ offset_top = -3.0
 offset_right = 1146.0
 offset_bottom = 643.0
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1877336203]
-autoplay = true
-
 [node name="Curtain" parent="." unique_id=1501850055 instance=ExtResource("11_4m6s5")]
 visible = false
 z_index = 10
@@ -105,12 +111,13 @@ script = ExtResource("11_cvf5x")
 puzzleList = Array[PackedScene]([ExtResource("8_kpfah"), ExtResource("8_cvf5x"), ExtResource("12_kpfah"), ExtResource("4_51arp"), ExtResource("5_454rm")])
 dialogue = NodePath("../Dialogue")
 
-[node name="puzzleManager" type="Node" parent="." unique_id=1441602274 node_paths=PackedStringArray("loader", "dialogue", "debugText")]
+[node name="puzzleManager" type="Node" parent="." unique_id=1441602274 node_paths=PackedStringArray("loader", "dialogue", "debugText", "audioManager")]
 script = ExtResource("10_5fri5")
 loaderName = "PuzzleLoader"
 loader = NodePath("../PuzzleLoader")
 dialogue = NodePath("../Dialogue")
 debugText = NodePath("../debugoutputtext")
+audioManager = NodePath("../AudioManager")
 
 [node name="Stage" type="Sprite2D" parent="." unique_id=1160562798]
 texture_filter = 1

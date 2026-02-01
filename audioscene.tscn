@@ -52,8 +52,6 @@ texture = ExtResource("2_fyor8")
 [node name="Spotlight3" parent="." unique_id=1141804037 instance=ExtResource("3_uh1b2")]
 z_index = 100
 position = Vector2(-1753, -468)
-home_position = Vector2(927, 358)
-size = 100
 color = Color(1, 0, 1, 1)
 shader = SubResource("ShaderMaterial_1dmfv")
 
@@ -63,8 +61,6 @@ instance_shader_parameters/objectColor = Vector4(0, 1, 0, 1)
 [node name="Spotlight4" parent="." unique_id=1623100901 instance=ExtResource("3_uh1b2")]
 z_index = 100
 position = Vector2(1436, 162)
-home_position = Vector2(185, 168)
-size = 100
 color = Color(0, 1, 1, 1)
 
 [node name="Color Circle" parent="Spotlight4" index="1" unique_id=81173429]
@@ -73,8 +69,6 @@ instance_shader_parameters/objectColor = Vector4(1, 0, 0, 1)
 [node name="Spotlight5" parent="." unique_id=1366813158 instance=ExtResource("3_uh1b2")]
 z_index = 100
 position = Vector2(1397, 420)
-home_position = Vector2(1010, 87)
-size = 100
 color = Color(0, 1, 1, 1)
 
 [node name="Color Circle" parent="Spotlight5" index="1" unique_id=81173429]

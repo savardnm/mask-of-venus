@@ -1,5 +1,8 @@
 extends Node
 
+
+#  for reference var audioManager = get_node("AudioManager")
+
 # Dictionary to store loaded sounds for quick access
 var sounds = {
 	"clap": preload("res://Audio/SFX//applause.wav"),
@@ -57,7 +60,6 @@ func play_voice_sequence(order):
 
 		sfxSequence.append(nextVoice)
 
-	sfxPlayer.stream = voices[1]
 	sfxPlayer.volume_db = 1
 	sfxPlayer.bus = &"SFX"
 	sfxPlayer.connect("finished", Callable(self,"_continue_sfx_sequence").bind(sfxPlayer))

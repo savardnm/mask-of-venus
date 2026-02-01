@@ -1,6 +1,9 @@
 extends Area2D
 class_name Spotlight
 
+
+@export var home_position = Vector2.ZERO
+
 var claimed = false
 
 
@@ -61,6 +64,9 @@ func _process(delta: float):
 			
 
 	pass
+
+func go_home():
+	target_position = home_position
 
 func _draw():
 	if outline:

@@ -5,6 +5,14 @@ var transitioning = false
 
 @onready var animation_player: AnimationPlayer = find_child("AnimationPlayer")
 
+
+signal curtains_closed
+signal curtains_opened
+signal curtains_closing
+signal curtains_opening
+
+
+
 func _process(delta: float):
 	if transitioning:
 		if not animation_player.is_playing():
@@ -28,10 +36,6 @@ func open_curtains():
 		transitioning = true
 
 
-signal curtains_closed
-signal curtains_opened
-
-
 
 func _on_node_2d_accept_pressed():
 	if not transitioning:
@@ -40,5 +44,7 @@ func _on_node_2d_accept_pressed():
 func toggle():
 	if open:
 		close_curtains()
+		curtains_closing.emit()
 	else:
 		open_curtains()
+		curtains_opening.emit()

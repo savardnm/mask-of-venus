@@ -2,6 +2,11 @@ extends Area2D
 class_name Spotlight
 
 
+@export var home_position = Vector2.ZERO
+
+var claimed = false
+
+
 # @export var size = 100:
 # 	set(value):
 # 		size = value
@@ -9,7 +14,7 @@ class_name Spotlight
 
 @export var size = 100
 
-@export var color = Color(1,1,1,1):
+@export var color = Color(1,1,1,0.5):
 	set(value):
 		color = value
 		set_spotlight_color(value)
@@ -37,7 +42,7 @@ func _ready():
 	pass # Replace with function body.
 
 func draw_outline():
-	draw_circle(Vector2.ZERO, size, Color.WHITE, false, 2)
+	draw_circle(Vector2.ZERO, size, Color.WHITE, false, 1)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float):
@@ -45,7 +50,23 @@ func _process(delta: float):
 	velocity += direction / mass
 	velocity = velocity * drag
 	position += velocity * delta
+
+	if not claimed:
+		if has_overlapping_areas():
+			var initial = true
+			for candidate in get_overlapping_areas():
+				if candidate is MagnetZone:
+					if initial:
+						target_position = candidate.global_position
+						initial = false
+					elif candidate.global_position.distance_to(global_position) < target_position.distance_to(global_position):
+						target_position = candidate.global_position
+			
+
 	pass
+
+func go_home():
+	target_position = home_position
 
 func _draw():
 	if outline:

@@ -16,6 +16,7 @@ signal next_step_unlocked
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	timer = -5
 	# loader = get_tree().root.get_node(loaderName);
 	if loader:
 		print("has loader")

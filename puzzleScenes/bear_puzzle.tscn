@@ -14,6 +14,10 @@ shader = ExtResource("2_x5enh")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_khh3f"]
 shader = ExtResource("2_x5enh")
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_far72"]
+radius = 7.333336
+height = 29.333313
+
 [node name="BearPuzzle" type="Node2D" unique_id=848156233 node_paths=PackedStringArray("bear", "rescueObject", "background")]
 script = ExtResource("1_x5enh")
 bear = NodePath("Bear")
@@ -55,6 +59,9 @@ instance_shader_parameters/objectColor = Vector4(1, 0, 1, 1)
 position = Vector2(229, 502)
 texture = ExtResource("3_khh3f")
 
+[node name="CollisionShape2D" parent="Romeo2/MagnetZone" parent_id_path=PackedInt32Array(994194707, 515792818) index="0" unique_id=1672671517]
+shape = SubResource("CapsuleShape2D_far72")
+
 [node name="PuzzleDialogue" type="Node2D" parent="." unique_id=1487310960]
 script = ExtResource("7_khh3f")
 puzzle_prompt_text = "[color=green][i]RAAAWR![/i][/color]
@@ -63,3 +70,7 @@ puzzle_prompt_text = "[color=green][i]RAAAWR![/i][/color]
 puzzle_complete_text = "[color=magenta]I have heard, but not believed, the spirits o' the dead may walk again...[/color]
 [i]It seems Antigonus is only imagining things again...[/i]"
 easter_egg_text = "[color=green][i]RAWR???[/i][/color]"
+puzzle_prompt_speakers = Array[String](["b", "m", "m", "n"])
+puzzle_complete_speakers = Array[String](["m", "m", "n"])
+
+[editable path="Romeo2"]

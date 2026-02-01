@@ -5,9 +5,11 @@ extends Node
 @export var dialogue : Node
 @export var debugText : RichTextLabel
 @export var activePuzzle : Node
+
 var currentLevel = 0
 var puzzleSolved = false
 var timer = 0
+
 
 signal puzzle_solved
 

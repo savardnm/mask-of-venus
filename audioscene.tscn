@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://c3x7otdfniy7h"]
+
+[ext_resource type="PackedScene" uid="uid://db0ebxc0hdqyr" path="res://Objects/selector.tscn" id="1_23rfn"]
+[ext_resource type="Texture2D" uid="uid://dekens6qjnt02" path="res://Sprites/Basic Shapes/Square.png" id="2_fyor8"]
+[ext_resource type="PackedScene" uid="uid://d1j6gck5rlp7s" path="res://Objects/spotlight.tscn" id="3_uh1b2"]
+[ext_resource type="Shader" uid="uid://dq7a7puer14nj" path="res://material/Shader_Add.gdshader" id="4_xfkkg"]
+[ext_resource type="PackedScene" uid="uid://hepwmc3vxi6r" path="res://Objects/dialogue.tscn" id="5_36x46"]
+[ext_resource type="PackedScene" uid="uid://dxbe0q2p8ygu3" path="res://Objects/Curtains.tscn" id="6_17plh"]
+[ext_resource type="Script" uid="uid://cwlu6id82rn14" path="res://_scripts/AudioManager.gd" id="6_fyor8"]
+[ext_resource type="Script" uid="uid://b4fdt7y380woq" path="res://_scripts/PuzzleLoader.gd" id="7_onavi"]
+[ext_resource type="PackedScene" uid="uid://duaodkki0y8ok" path="res://puzzleScenes/testSpawn.tscn" id="8_hs0wh"]
+[ext_resource type="PackedScene" uid="uid://dat0x6vuf5n5d" path="res://puzzleScenes/bear_puzzle.tscn" id="9_0pmqi"]
+[ext_resource type="PackedScene" uid="uid://d1gqdibb22j0f" path="res://puzzleScenes/puzzle2_randj.tscn" id="10_0i503"]
+[ext_resource type="Script" uid="uid://byl12g3sv1ol5" path="res://_scripts/PuzzleManager.gd" id="11_7t40m"]
+[ext_resource type="Texture2D" uid="uid://dqdv1yxq0bqji" path="res://Sprites/Background and Stage/stage.png" id="12_et4vk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4m6s5"]
+size = Vector2(873.8872, 78.79326)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1dmfv"]
+shader = ExtResource("4_xfkkg")
+
+[node name="Root" type="Node2D" unique_id=848156233]
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1123501620]
+position = Vector2(778, 309)
+
+[node name="Selector" parent="." unique_id=323801360 instance=ExtResource("1_23rfn")]
+position = Vector2(440, 80)
+
+[node name="debugoutputtext" type="RichTextLabel" parent="." unique_id=1498843965]
+offset_right = 40.0
+offset_bottom = 40.0
+fit_content = true
+autowrap_mode = 0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=683850066]
+position = Vector2(295, 587)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=223068846]
+position = Vector2(286.865, -1.602478)
+scale = Vector2(1.33, 1.33)
+shape = SubResource("RectangleShape2D_4m6s5")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=865923527]
+visible = false
+modulate = Color(0.38431373, 0.1882353, 0, 1)
+position = Vector2(282.49994, 9.999981)
+scale = Vector2(4.550781, 0.36718735)
+texture = ExtResource("2_fyor8")
+
+[node name="Spotlight3" parent="." unique_id=1141804037 instance=ExtResource("3_uh1b2")]
+z_index = 100
+position = Vector2(-1753, -468)
+home_position = Vector2(927, 358)
+size = 100
+color = Color(1, 0, 1, 1)
+shader = SubResource("ShaderMaterial_1dmfv")
+
+[node name="Color Circle" parent="Spotlight3" index="1" unique_id=81173429]
+instance_shader_parameters/objectColor = Vector4(0, 1, 0, 1)
+
+[node name="Spotlight4" parent="." unique_id=1623100901 instance=ExtResource("3_uh1b2")]
+z_index = 100
+position = Vector2(1436, 162)
+home_position = Vector2(185, 168)
+size = 100
+color = Color(0, 1, 1, 1)
+
+[node name="Color Circle" parent="Spotlight4" index="1" unique_id=81173429]
+instance_shader_parameters/objectColor = Vector4(1, 0, 0, 1)
+
+[node name="Spotlight5" parent="." unique_id=1366813158 instance=ExtResource("3_uh1b2")]
+z_index = 100
+position = Vector2(1397, 420)
+home_position = Vector2(1010, 87)
+size = 100
+color = Color(0, 1, 1, 1)
+
+[node name="Color Circle" parent="Spotlight5" index="1" unique_id=81173429]
+instance_shader_parameters/objectColor = Vector4(0, 0, 1, 1)
+
+[node name="Dialogue" parent="." unique_id=1481266671 instance=ExtResource("5_36x46")]
+z_index = -4
+offset_left = -5.0
+offset_top = -3.0
+offset_right = 1146.0
+offset_bottom = 643.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1877336203 node_paths=PackedStringArray("musicPlayer", "sfxPlayer")]
+autoplay = true
+script = ExtResource("6_fyor8")
+musicPlayer = NodePath(".")
+sfxPlayer = NodePath("sfxAudioStream")
+
+[node name="sfxAudioStream" type="AudioStreamPlayer" parent="AudioStreamPlayer" unique_id=430672846]
+
+[node name="Curtain" parent="." unique_id=1501850055 instance=ExtResource("6_17plh")]
+z_index = 10
+position = Vector2(-18, -119)
+scale = Vector2(1.1, 1)
+
+[node name="Curtain2" parent="." unique_id=1708424299 instance=ExtResource("6_17plh")]
+z_index = 11
+position = Vector2(1192, -119)
+scale = Vector2(-1.2, 1)
+
+[node name="PuzzleLoader" type="Node" parent="." unique_id=723780575 node_paths=PackedStringArray("dialogue")]
+script = ExtResource("7_onavi")
+puzzleList = Array[PackedScene]([ExtResource("8_hs0wh"), ExtResource("9_0pmqi"), ExtResource("10_0i503")])
+dialogue = NodePath("../Dialogue")
+
+[node name="puzzleManager" type="Node" parent="." unique_id=1441602274 node_paths=PackedStringArray("loader", "dialogue", "debugText")]
+script = ExtResource("11_7t40m")
+loaderName = "PuzzleLoader"
+loader = NodePath("../PuzzleLoader")
+dialogue = NodePath("../Dialogue")
+debugText = NodePath("../debugoutputtext")
+
+[node name="Stage" type="Sprite2D" parent="." unique_id=1160562798]
+texture_filter = 1
+position = Vector2(581.99994, 566.25)
+scale = Vector2(10.962263, 7.2045445)
+texture = ExtResource("12_et4vk")
+
+[connection signal="complete_finished" from="Dialogue" to="Curtain" method="close_curtains"]
+[connection signal="curtains_closed" from="Curtain" to="Spotlight3" method="go_home"]
+[connection signal="curtains_closed" from="Curtain" to="Spotlight4" method="go_home"]
+[connection signal="curtains_closed" from="Curtain" to="Spotlight5" method="go_home"]
+[connection signal="curtains_closing" from="Curtain" to="Curtain2" method="close_curtains"]
+[connection signal="curtains_opened" from="Curtain" to="Dialogue" method="give_prompt"]
+[connection signal="curtains_opening" from="Curtain" to="Curtain2" method="open_curtains"]
+[connection signal="curtains_closed" from="Curtain2" to="puzzleManager" method="_on_curtain_2_curtains_closed"]
+[connection signal="puzzle_spawned" from="PuzzleLoader" to="Curtain" method="open_curtains"]
+[connection signal="puzzle_spawned" from="PuzzleLoader" to="Curtain2" method="open_curtains"]
+[connection signal="puzzle_solved" from="puzzleManager" to="Dialogue" method="give_complete"]
+
+[editable path="Spotlight3"]
+[editable path="Spotlight4"]
+[editable path="Spotlight5"]

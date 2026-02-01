@@ -21,11 +21,7 @@ radius = 17.029387
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kek77"]
 shader = ExtResource("4_7mycd")
 
-<<<<<<< HEAD
 [node name="Root2" type="Node2D" unique_id=848156233]
-=======
-[node name="Root" type="Node2D"]
->>>>>>> 6c97c7706b5d2b6abf2cf00d865840ba3f477d76
 
 [node name="Circle3" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_5vw27")
@@ -77,15 +73,11 @@ color = Color(0, 1, 1, 1)
 [node name="Color Circle" parent="Spotlight3" index="1"]
 instance_shader_parameters/objectColor = Vector4(0, 0, 1, 1)
 
-<<<<<<< HEAD
 [node name="Dialogue" parent="." unique_id=1481266671 instance=ExtResource("8_5vw27")]
 offset_left = -5.0
 offset_top = -3.0
 offset_right = 1146.0
 offset_bottom = 643.0
-=======
-[node name="Dialogue" parent="." instance=ExtResource("8_5vw27")]
->>>>>>> 6c97c7706b5d2b6abf2cf00d865840ba3f477d76
 
 [editable path="Spotlight"]
 [editable path="Spotlight2"]

@@ -28,10 +28,11 @@ modulate = Color(1, 1, 0, 1)
 texture_filter = 1
 material = SubResource("ShaderMaterial_ruhxn")
 instance_shader_parameters/objectColor = Vector4(0, 0, 1, 1)
-position = Vector2(446, 501.74084)
+position = Vector2(444, 486.74084)
 scale = Vector2(3, 3)
 texture = ExtResource("3_7wa6u")
 script = ExtResource("5_ruhxn")
+metadata/_edit_group_ = true
 
 [node name="Magnet Zone" type="Area2D" parent="Romeo" unique_id=491551238]
 script = ExtResource("5_i5lm3")
@@ -43,10 +44,11 @@ shape = SubResource("CapsuleShape2D_ruhxn")
 texture_filter = 1
 material = SubResource("ShaderMaterial_i5lm3")
 instance_shader_parameters/objectColor = Vector4(1, 0, 1, 1)
-position = Vector2(592.38367, 500.5)
+position = Vector2(590.38367, 485.5)
 scale = Vector2(3, 3)
 texture = ExtResource("5_7wa6u")
 script = ExtResource("5_ruhxn")
+metadata/_edit_group_ = true
 
 [node name="Magnet Zone" type="Area2D" parent="juliet" unique_id=529852860]
 script = ExtResource("5_i5lm3")

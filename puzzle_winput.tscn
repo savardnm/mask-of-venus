@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c2sui3g7o8nb8"]
 
-[ext_resource type="Script" uid="uid://boa41t83b4hpi" path="res://_scripts/sfx_player.gd" id="2_gxjkp"]
+[ext_resource type="Script" path="res://_scripts/sfx_player.gd" id="2_gxjkp"]
 [ext_resource type="Shader" uid="uid://dq7a7puer14nj" path="res://material/Shader_Add.gdshader" id="3_4m6s5"]
 [ext_resource type="PackedScene" uid="uid://dat0x6vuf5n5d" path="res://puzzleScenes/bear_puzzle.tscn" id="4_51arp"]
 [ext_resource type="PackedScene" uid="uid://db0ebxc0hdqyr" path="res://Objects/selector.tscn" id="6_1dmfv"]
@@ -74,7 +74,7 @@ home_position = [Vector2(205, 339), Vector2(168, 102), Vector2(985, 205)]
 color = Color(1, 0, 1, 1)
 shader = SubResource("ShaderMaterial_1dmfv")
 
-[node name="Color Circle" parent="Spotlight3" index="1" unique_id=81173429]
+[node name="Color Circle" parent="Spotlight3" index="1"]
 instance_shader_parameters/objectColor = Vector4(0, 1, 0, 1)
 
 [node name="Spotlight4" parent="." unique_id=1623100901 instance=ExtResource("8_cmf70")]
@@ -83,7 +83,7 @@ position = Vector2(824, 73)
 home_position = [Vector2(692, 125), Vector2(974, 413), Vector2(148, 442), Vector2(824, 73)]
 color = Color(0, 1, 1, 1)
 
-[node name="Color Circle" parent="Spotlight4" index="1" unique_id=81173429]
+[node name="Color Circle" parent="Spotlight4" index="1"]
 instance_shader_parameters/objectColor = Vector4(1, 0, 0, 1)
 
 [node name="Spotlight5" parent="." unique_id=1366813158 instance=ExtResource("8_cmf70")]
@@ -92,7 +92,7 @@ position = Vector2(72, 87)
 home_position = [Vector2(1009, 365), Vector2(1033, 164), Vector2(434, 182), Vector2(72, 87)]
 color = Color(0, 1, 1, 1)
 
-[node name="Color Circle" parent="Spotlight5" index="1" unique_id=81173429]
+[node name="Color Circle" parent="Spotlight5" index="1"]
 instance_shader_parameters/objectColor = Vector4(0, 0, 1, 1)
 
 [node name="Dialogue" parent="." unique_id=1481266671 instance=ExtResource("10_1dmfv")]

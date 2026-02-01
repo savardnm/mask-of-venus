@@ -8,7 +8,7 @@ extends Node
 
 # Dictionary to store loaded sounds for quick access
 var sounds = {
-	"clap": preload("res://Audio/SFX//applause.wav"),
+	"clap": preload("res://Audio/SFX//Applause.wav"),
 	"drumroll": preload("res://Audio/SFX/Drumroll.wav"),
 	"select": preload("res://Audio/SFX/Flashlight_Select.wav"),
 

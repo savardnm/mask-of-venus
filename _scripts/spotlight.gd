@@ -8,6 +8,9 @@ var rng = RandomNumberGenerator.new()
 var claimed = false
 var going_home
 
+var max_volume = 5.0
+var volume_mult = 0.05
+var volume_base = -10
 
 # @export var size = 100:
 # 	set(value):
@@ -53,7 +56,16 @@ func _process(delta: float):
 	velocity += direction / mass
 	velocity = velocity * drag
 	position += velocity * delta
-
+	
+	if velocity.length() > 100:
+		if $SpotlightDrag.playing == false:
+			$SpotlightDrag.play()
+		var volume = velocity.length()*volume_mult + volume_base
+		if volume > max_volume:
+			volume = max_volume
+		$SpotlightDrag.volume_db = volume
+	else:
+		$SpotlightDrag.stop()
 	if going_home:
 		if target_position.distance_to(global_position) < 10:
 			going_home = false
